@@ -12,7 +12,7 @@
         <br>
         <div class="card">
             <div class="card-body">
-                <form name="frmUsuario" action="incluirCadastro.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <form name="frmResul1" action="cadastroResultado2.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                     UF: <select name="selectUF" class="col-md-2 mb-2" id="idUF">
                         <?php
                         include("../model/conexao.php");
@@ -40,7 +40,7 @@
         </fieldset>
 
     </center>
-    <script src="../funcoes.js"></script>
+    <script src="../js/funcSelectMuni.js"></script>
 </body>
 
 </html>
