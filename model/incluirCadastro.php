@@ -1,4 +1,3 @@
-
 <?php
 include('conexao.php');
 $nome = $_POST['nome'];
@@ -26,5 +25,3 @@ $SQL = "INSERT INTO
 mysqli_query($conectado, $SQL);
 
 header('location: ../view/login.php');
-
-?>

@@ -16,30 +16,28 @@
         ?>
         <div class="card">
             <div class="card-body">
-                <form name="frmResul2" action="cadastroResultado2.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
-                    Cargo: <select name="selectCargo" class="col-md-2 mb-2" id="idCargo">
+                <form name="frmResul1" action="cadastroResultado3.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    Zona: <select name="selectZona" class="col-md-2 mb-2" id="idZona">
                         <?php
                         include("../model/conexao.php");
-                        $cargo = "<option value='0'>Selecione o cargo</option>";
-                        $sql = "SELECT * FROM cargos ORDER BY NM_CARGO";
+                        $zona = "<option value='0'>Selecione a Zona</option>";
+                        $sql = "SELECT * FROM urna WHERE idUF ='$idUF' GROUP BY zona ORDER BY zona";
                         $rs = mysqli_query($conectado, $sql);
                         while ($registro = mysqli_fetch_array($rs)) {
-                            $cargo = $cargo . "<option value='" . $registro['CD_CARGO'] . "'>" . $registro['NM_CARGO'] . "<option>";
+                            $zona = $zona . "<option value='" . $registro['zona'] . "'>" . $registro['zona'] . "<option>";
                         }
-                        echo $cargo;
+                        echo $zona;
                         ?>
                     </select>
 
-                    Candidato:
-                    <select name="selectCand" id="idCand" class="col-md-2 mb-2">
-                        <option value="">Selecione um candidato</option>
+                    Seção:
+                    <select name="selectSecao" id="idSecao" class="col-md-2 mb-2">
+                        <option value="">Selecione uma seção</option>
                     </select>
-
-                    <label>Votos</label>
-                    <input name="votos" type="number" class="form-control" placeholder="Votos">
 
                     <input type="hidden" name="selectUF" id="idUF" value="<?php echo $idUF ?>">
                     <input type="hidden" name="selectMuni" value="<?php echo $Municipio ?>">
+
             </div>
         </div>
         <br>
@@ -49,7 +47,7 @@
         </fieldset>
 
     </center>
-    <script src="../js/funcSelectCand.js"></script>
+    <script src="../js/funcSelectSecao.js"></script>
 </body>
 
 </html>
