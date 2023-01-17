@@ -24,7 +24,8 @@ $SQL = "INSERT INTO
 				'$new_name',
                 0)";
 mysqli_query($conectado, $SQL);
+$idBol = mysqli_insert_id($conectado);
 
-header('location: ../view/cadastroResultado4.php?idUF=' . $idUF);
+header('location: ../view/cadastroResultado4.php?idUF=' . $idUF . '&idBol=' . $idBol);
 
 ?>

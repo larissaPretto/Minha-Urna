@@ -41,3 +41,8 @@
         </div>
         <br>
         <button type="submit" class="btn btn-primary">Cadastrar</button><br>
+
+    </center>
+</body>
+
+</html>
