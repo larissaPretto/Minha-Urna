@@ -2,45 +2,57 @@
 <html>
 
 <head lang="pt-br">
-    <title>Cadastro</title>
+    <title>Registrar | Minha Urna</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="cadastroResultado1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <center>
-        <br>
-        <h3>Cadastro</h3>
-        <br>
-        <div class="card">
-            <div class="card-body">
-                <form name="frmResul1" action="cadastroResultado2.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
-                    UF: <select name="selectUF" class="col-md-2 mb-2" id="idUF">
-                        <?php
-                        include("../model/conexao.php");
-                        $UF = "<option value='0'>Selecione o UF</option>";
-                        $sql = "SELECT * FROM estadoUF GROUP BY uf ORDER BY uf";
-                        $rs = mysqli_query($conectado, $sql);
-                        while ($registro = mysqli_fetch_array($rs)) {
-                            $UF = $UF . "<option value='" . $registro['id'] . "'>" . $registro['uf'] . "<option>";
-                        }
-                        echo $UF;
-                        ?>
-                    </select>
 
-                    Município:
-                    <select name="selectMuni" id="idMuni" class="col-md-2 mb-2">
-                        <option value="">Selecione um municipio</option>
-                    </select>
+    <img src="illustrations/local.png">
+    <p class="title">Estado e Município</p>
+    <div class="warning">
+        <img src="illustrations/warning.png">
+        <p class="title">Os dados serão verificados após a finalização do registro.</p>
+    </div>
+    <br>
+    <p class="pageTitle">Registrar resultados</p>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <form name="frmResul1" action="cadastroResultado2.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <select name="selectUF" class="UFTextField" id="idUF">
+                    <?php
+                    include("../model/conexao.php");
+                    $UF = "<option value='0'>Selecione o UF</option>";
+                    $sql = "SELECT * FROM estadoUF GROUP BY uf ORDER BY uf";
+                    $rs = mysqli_query($conectado, $sql);
+                    while ($registro = mysqli_fetch_array($rs)) {
+                        $UF = $UF . "<option value='" . $registro['id'] . "'>" . $registro['uf'] . "<option>";
+                    }
+                    echo $UF;
+                    ?>
+                </select>
+                <p class="UFTextFieldHelp">Estado do local de votação</p>
+                    
 
-            </div>
+                <select name="selectMuni" id="idMuni" class="municipioTextField">
+                    <option value="">Selecione um municipio</option>
+                </select>
+                <p class="municipioTextFieldHelp">Munícipio onde ocorreu a votação</p>
         </div>
-        <br>
-        <button type="submit" class="btn btn-primary">Cadastrar</button><br>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Próximo</button><br>
 
-        </form>
-        </fieldset>
+    </form>
+    </fieldset>
 
-    </center>
     <script src="../js/funcSelectMuni.js"></script>
+    <img class="progress" src="illustrations/progress1.png">
 </body>
 
 </html>
