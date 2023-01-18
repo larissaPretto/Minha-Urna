@@ -52,11 +52,11 @@
         </div>
     </div>
     <br>
-    <button type="submit" class="adicionar">Adicionar candidato</button><br>
+    <button type="submit" class="adicionar">Registrar e adicionar outro</button><br>
     </form>
 
     <br>
-    <a href='inicio.php'><button class="finalizar">Finalizar registro</button></a>
+    <a href='inicio.php'><button class="finalizar">Registrar e finalizar</button></a>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="../js/sendForm.js"></script>
