@@ -33,34 +33,23 @@
       <span>Mais Relevantes</span>
       <!-- teste abaixo -->
       <div class="container">
-        <h3>Veículos Cadastrados</h3>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Modelo</th>
-              <th scope="col">Valor</th>
-              <th scope="col">KM</th>
-            </tr>
-          </thead>
-          <!-- TESTE ABAIXO -->
-          <tbody>
-            <?php
-            include("../model/conexao.php");
-            $sql = "SELECT * FROM VOTOS";
-            $consulta = mysqli_query($conectado, $sql);
-            while ($registro = mysqli_fetch_array($consulta)) {
-              echo "
+        <?php
+        include("../model/conexao.php");
+        $sql = "SELECT * FROM VOTOS";
+        $consulta = mysqli_query($conectado, $sql);
+        while ($registro = mysqli_fetch_array($consulta)) {
+          $sqlDois = "SELECT * FROM candidatos where '$registro[idCandidato]' = id_candidato";
+          while ($registroDois = mysqli_fetch_array(mysqli_query($conectado, $sqlDois)))
+            echo "
                             <tr>
-                                <td>$registro[idBoletim]</td>
-                                <td>$registro[idCandidato]</td>
+                                <td>$registroDois[NM_URNA_CANDIDATO]</td>
                                 <td>$registro[votos]</td>
                             </tr>
                         ";
-            }
-            ?>
-          </tbody>
-          <!-- TESTE ACIMA -->
-        </table>
+        }
+        ?>
+        <!-- TESTE ACIMA -->
+
       </div>
     </div>
   </center>
