@@ -2,8 +2,8 @@
 <html>
 
 <head lang="pt-br">
-<title>Criar conta | Minha Urna</title>  
-<meta charset="utf-8">
+  <title>Criar conta | Minha Urna</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="cadastroUser.css">
@@ -20,7 +20,7 @@
   <div class="card">
     <div class="container-fluid">
 
-      <form name="frmUsuario" action="../model/incluirCadastro.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+      <form name="frmUsuario" action="escolheUser.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
         <div class="nomeTextField">
           <input type="text" name="nome" class="form-control" placeholder="Nome" required>
         </div>
@@ -35,8 +35,8 @@
             Sua senha deve conter de 8 a 15 caracteres.
           </small>
         </div>
-      </div>
     </div>
+  </div>
   </div>
   <br>
   <button type="submit" class="entrar">Criar conta</button><br>

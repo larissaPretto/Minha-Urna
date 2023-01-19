@@ -31,7 +31,9 @@
                     $sql = "SELECT * FROM estadoUF GROUP BY uf ORDER BY uf";
                     $rs = mysqli_query($conectado, $sql);
                     while ($registro = mysqli_fetch_array($rs)) {
-                        $UF = $UF . "<option value='" . $registro['id'] . "'>" . $registro['uf'] . "</option>";
+                        if ($registro['uf'] != "BR") {
+                            $UF = $UF . "<option value='" . $registro['id'] . "'>" . $registro['uf'] . "</option>";
+                        }
                     }
                     echo $UF;
                     ?>
