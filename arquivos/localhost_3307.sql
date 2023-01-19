@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Tempo de geração: 16-Jan-2023 às 14:26
+-- Tempo de geração: 17-Jan-2023 às 19:32
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.0.25
 
@@ -31,12 +31,19 @@ USE `dbeleicoes`;
 
 CREATE TABLE `boletim` (
   `idBoletim` int(11) NOT NULL,
-  `idCandidato` int(11) NOT NULL,
-  `votos` int(11) NOT NULL,
   `idUrna` int(11) NOT NULL,
   `imgBoletim` varchar(50) NOT NULL,
   `valido` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Extraindo dados da tabela `boletim`
+--
+
+INSERT INTO `boletim` (`idBoletim`, `idUrna`, `imgBoletim`, `valido`) VALUES
+(1, 3, 'Boletim-larissapretto009w@gmail.com.jpg', 0),
+(2, 3, 'Boletim-larissapretto009w@gmail.com.jpg', 0),
+(3, 2, 'Boletim-larissapretto009w@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -32795,9 +32802,18 @@ INSERT INTO `turnos` (`NR_TURNO`, `NM_TURNO`) VALUES
 CREATE TABLE `urna` (
   `idUrna` int(11) NOT NULL,
   `idUF` int(4) NOT NULL,
+  `idMuni` int(11) NOT NULL,
   `zona` int(11) NOT NULL,
   `secao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Extraindo dados da tabela `urna`
+--
+
+INSERT INTO `urna` (`idUrna`, `idUF`, `idMuni`, `zona`, `secao`) VALUES
+(2, 1, 53, 45, 23),
+(3, 1, 53, 45, 26);
 
 -- --------------------------------------------------------
 
@@ -32821,6 +32837,18 @@ INSERT INTO `usuario` (`idUsuario`, `nome`, `email`, `senha`, `img`) VALUES
 (4, 'larissaasfe', 'larissapretto0fsf09@gmail.com', 'c9266178be574fe37d8ac02421b27697', 'larissapretto0fsf09@gmail.com.jpg'),
 (5, 'lslasaslasl', 'larissapretto009w@gmail.com', 'c9266178be574fe37d8ac02421b27697', 'larissapretto009w@gmail.com'),
 (6, 'Yuri Fonseca de Morais', '123@gmail.com', '392c9d59d124c9c7dbcd48311c1acb61', '123@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `votos`
+--
+
+CREATE TABLE `votos` (
+  `idBoletim` int(11) NOT NULL,
+  `idCandidato` int(11) NOT NULL,
+  `votos` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Índices para tabelas despejadas
@@ -32885,7 +32913,8 @@ ALTER TABLE `turnos`
 --
 ALTER TABLE `urna`
   ADD PRIMARY KEY (`idUrna`),
-  ADD KEY `FK_URNA` (`idUF`) USING BTREE;
+  ADD KEY `FK_URNA` (`idUF`) USING BTREE,
+  ADD KEY `fk_urna_muni` (`idMuni`);
 
 --
 -- Índices para tabela `usuario`
@@ -32895,6 +32924,13 @@ ALTER TABLE `usuario`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Índices para tabela `votos`
+--
+ALTER TABLE `votos`
+  ADD KEY `FK_BOL_VOTOS` (`idBoletim`),
+  ADD KEY `FK_CAND_VOTOS` (`idCandidato`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -32902,7 +32938,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `boletim`
 --
 ALTER TABLE `boletim`
-  MODIFY `idBoletim` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idBoletim` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `candidatos`
@@ -32926,7 +32962,7 @@ ALTER TABLE `municipios`
 -- AUTO_INCREMENT de tabela `urna`
 --
 ALTER TABLE `urna`
-  MODIFY `idUrna` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUrna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
@@ -32958,7 +32994,15 @@ ALTER TABLE `municipios`
 -- Limitadores para a tabela `urna`
 --
 ALTER TABLE `urna`
+  ADD CONSTRAINT `fk_urna_muni` FOREIGN KEY (`idMuni`) REFERENCES `municipios` (`id`),
   ADD CONSTRAINT `ksks` FOREIGN KEY (`idUF`) REFERENCES `estadouf` (`id`);
+
+--
+-- Limitadores para a tabela `votos`
+--
+ALTER TABLE `votos`
+  ADD CONSTRAINT `FK_BOL_VOTOS` FOREIGN KEY (`idBoletim`) REFERENCES `boletim` (`idBoletim`),
+  ADD CONSTRAINT `FK_CAND_VOTOS` FOREIGN KEY (`idCandidato`) REFERENCES `candidatos` (`ID_CANDIDATO`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
