@@ -50,9 +50,21 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
         ?>
       </div>
     </a><br>
-
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <div class="Search">
     <form name="frmBusca" method="POST" action="pesquisa.php" class="form-inline my-2 my-lg-0">
+      <select name="turno" class="UFTextField" id="turno">
+        <?php
+        include("../model/conexao.php");
+        $turno = "<option value='0'>Selecione o Turno</option>";
+        $sql = "SELECT * FROM turnos ORDER BY NM_TURNO";
+        $rs = mysqli_query($conectado, $sql);
+        while ($registro = mysqli_fetch_array($rs)) {
+          $turno = $turno . "<option value='" . $registro['NR_TURNO'] . "'>" . $registro['NM_TURNO'] . "</option>";
+        }
+        echo $turno;
+        ?>
+      </select>
       <input type="search" name="busca" placeholder="Pesquise candidatos, cargos, cidades..." />
       <img class="searchIcon" src="illustrations/search.svg" alt="search" />
     </form>

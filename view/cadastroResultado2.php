@@ -31,10 +31,10 @@
                     <?php
                     include("../model/conexao.php");
                     $zona = "<option value='0'>Selecione a Zona</option>";
-                    $sql = "SELECT * FROM urna WHERE idUF ='$idUF' GROUP BY zona ORDER BY zona";
+                    $sql = "SELECT * FROM urna WHERE idUF ='$idUF' and idMuni='$Municipio' GROUP BY zona ORDER BY zona";
                     $rs = mysqli_query($conectado, $sql);
                     while ($registro = mysqli_fetch_array($rs)) {
-                        $zona = $zona . "<option value='" . $registro['zona'] . "'>" . $registro['zona'] . "<option>";
+                        $zona = $zona . "<option value='" . $registro['zona'] . "'>" . $registro['zona'] . "</option>";
                     }
                     echo $zona;
                     ?>

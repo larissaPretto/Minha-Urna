@@ -23,7 +23,7 @@
     <br>
     <div class="card">
         <div class="card-body">
-            <form name="frmResul1" action="cadastroResultado2.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <form name="frmResul1" action="cadastroResultado2.php" method="POST" enctype="multipart/form-data">
                 <select name="selectUF" class="UFTextField" id="idUF">
                     <?php
                     include("../model/conexao.php");
@@ -31,13 +31,13 @@
                     $sql = "SELECT * FROM estadoUF GROUP BY uf ORDER BY uf";
                     $rs = mysqli_query($conectado, $sql);
                     while ($registro = mysqli_fetch_array($rs)) {
-                        $UF = $UF . "<option value='" . $registro['id'] . "'>" . $registro['uf'] . "<option>";
+                        $UF = $UF . "<option value='" . $registro['id'] . "'>" . $registro['uf'] . "</option>";
                     }
                     echo $UF;
                     ?>
                 </select>
                 <p class="UFTextFieldHelp">Estado do local de votação</p>
-                    
+
 
                 <select name="selectMuni" id="idMuni" class="municipioTextField">
                     <option value="">Selecione um municipio</option>

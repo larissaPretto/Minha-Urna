@@ -34,7 +34,7 @@
 
     $rs = mysqli_query($conectado, $query);
     while ($registro = mysqli_fetch_array($rs)) {
-            $idUrna = $registro['idUrna'];
+        $idUrna = $registro['idUrna'];
     }
     ?>
 
