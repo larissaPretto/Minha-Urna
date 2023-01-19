@@ -1,22 +1,15 @@
  <!DOCTYPE html>
 
  <head lang="pt-br">
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-   <style type="text/css">
-     .row {
-       display: -ms-flexbox;
-       /* IE10 */
-       display: flex;
-       -ms-flex-wrap: wrap;
-       /* IE10 */
-       flex-wrap: wrap;
-       padding: 44px 44px;
-     }
-   </style>
-   <title>Cadastro</title>
- </head>
+    <title>Minha Conta | Minha Urna</title>  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="perfilUser.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
 
  <?php
   include('../model/conexao.php');
@@ -31,46 +24,55 @@
     $idUsuario = $produto['idUsuario'];
   }
   ?>
- <h2 style="margin-top:100px">Dados Pessoais</h2>
 
- <div class="card">
-   <div class="card-body">
+  <body>
+    <p class="title">Suas informações</p>
+    <p class="subtitle">Verifique ou edite seus dados</p>
 
-     <form name="att" method="POST" action="../model/attUser.php" enctype="multipart/form-data">
-       <div class="form-row">
-         <div class="col">
-           <label>Nome:</label>
-           <input type="text" class="form-control" name="nome" value="<?php echo $nome; ?>">
-         </div>
-         <div class="col">
-           <label>E-mail:</label>
-           <input name="email" type="email" class="form-control" value="<?php echo $email; ?>">
-           <input type="hidden" name="idUsuario" value="<?php echo $idUsuario ?>">
-         </div>
-       </div>
-       <br>
-       <label style="margin-left:100px">Foto do perfil:</label>
-       <br>
-       <div class="w3-quarter" style="margin-left:100px">
-         <?php
-          if ($img == $email) {
-            echo '  <img src="../img/semIm.jpg" alt="" style="width:80%">';
-          } else {
+  <div class="container">
+    <div class="container-fluid">
 
-            echo '  <img src="../img/' . $img . '" alt="" style="width:80%">';
-          }
-          ?>
-       </div>
-       <div class="form-group" style="margin-left:287px">
-         <input type="file" class="form-control-file" id="exampleFormControlFile1" name="fileUpload">
-       </div>
-       <br>
-   </div>
- </div>
- <br>
- <button type="submit" class="btn btn-primary">Salvar</button>
- <a class="dropdown-item" href="../control/sair.php">Sair</a>
- </form>
+      <form name="att" method="POST" action="../model/attUser.php" enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="nomeTextField" name="nome" value="<?php echo $nome; ?>">
+          </div>
+          <div class="col">
+            <input name="email" type="email" class="emailTextField" value="<?php echo $email; ?>">
+            <input type="hidden" name="idUsuario" value="<?php echo $idUsuario ?>">
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="profilePic">
+          <?php
+            if ($img == $email) {
+              echo '  <img src="../img/semIm.jpg" alt=""style="position: absolute;
+              width: 216px;
+              height: 216px;
+              left: 64px;
+              top: -356px;
+              border-radius: 999px">';
+            } else {
+              echo '  <img src="../img/' . $img . '" alt=""style="position: absolute;
+              width: 216px;
+              height: 216px;
+              left: 64px;
+              top: -356px;
+              border-radius: 999px">';
+            }
+            ?>
+        </div>
+        <div class="form-group">
+          <input type="file" class="imgField" id="exampleFormControlFile1" name="fileUpload">
+        </div>
+        <br>
+          <button type="submit" class="entrar">Salvar alterações</button>
+    </div>
+  </div>
+  <br>
+    <a href="../control/sair.php">Sair</a>
+  </form>
 
  </body>
 
