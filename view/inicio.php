@@ -78,8 +78,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
 
         $sqlCargo = "SELECT * FROM cargos where '$registroDois[CD_CARGO]' = CD_CARGO";
         $registroCargo = mysqli_fetch_array(mysqli_query($conectado, $sqlCargo));
-
-        echo "
+        echo "<p style='color: black;'>
                             <tr>
                                 <td>$registroDois[NM_URNA_CANDIDATO]</td>
                                 <td>$registroPartidos[NM_PARTIDO]</td>
