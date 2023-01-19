@@ -27,32 +27,32 @@
 <body>
   <p class="greeting"> Olá,  <?php echo $nome; ?><p>
 
-  <div class="profilePic" style="margin-left:100px">
-         <?php
-          if ($img == $email) {
-            echo '  <img src="../img/semIm.jpg" alt="" style="position: absolute;
-            width: 42px;
-            height: 42px;
-            left: 332px;
-            top: 32px;
-            border-radius: 999px;">';
-          } else {
+  <a class="dropdown-item" href="perfilUser.php">
+    <div class="profilePic" style="margin-left:100px">
+          <?php
+            if ($img == $email) {
+              echo '  <img src="../img/semIm.jpg" alt="" style="position: absolute;
+              width: 42px;
+              height: 42px;
+              left: 332px;
+              top: 32px;
+              border-radius: 999px;">';
+            } else {
 
-            echo '  <img src="../img/' . $img . '" alt="" style="position: absolute;
-            width: 42px;
-            height: 42px;
-            left: 332px;
-            top: 32px;
-            border-radius: 999px;">';
-          }
-          ?>
-       </div>
+              echo '  <img src="../img/' . $img . '" alt="" style="position: absolute;
+              width: 42px;
+              height: 42px;
+              left: 332px;
+              top: 32px;
+              border-radius: 999px;">';
+            }
+            ?>
+      </div>
   </a><br>
 
   <div class="Search">
     <input type="search" placeholder="Pesquise candidatos, cargos, cidades..."/>
     <img class="searchIcon" src = "illustrations/search.svg" alt="search"/>
-  <a class="dropdown-item" href="perfilUser.php">
 
   <div class="botoes">
     <button class="candidatos"><img src = "illustrations/candidatos.svg" alt="addIcon"/></button>
