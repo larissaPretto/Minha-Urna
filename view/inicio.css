@@ -18,6 +18,22 @@ body {
     color: #000000;
 }
 
+.botoes {
+    position: absolute;
+    width: 380px;
+    height: 73px;
+    left: 16px;
+    top: 180px;
+}
+
+.botoes button {
+    margin-left: 2px;
+    padding: 0px;
+    border-radius: 16px;
+    border: none;
+    background-color: transparent;
+}
+
 .Search input {
     box-sizing: border-box;
 
@@ -25,7 +41,7 @@ body {
     width: 358px;
     height: 48px;
     left: 16px;
-    top: 140px;
+    top: 120px;
 
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.25);
@@ -50,12 +66,24 @@ body {
     width: 28px;
     height: 28px;
     left: 26px;
-    top: 150px;
+    top: 130px;
 
 }
 
-.profilePic img{
-    width: 2px;
+.relevantText {
+    position: absolute;
+    width: 102px;
+    height: 18px;
+    left: 17px;
+    top: 264px;
+
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #000000;
 }
 
 .add {

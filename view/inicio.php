@@ -27,10 +27,6 @@
 <body>
   <p class="greeting"> Olá,  <?php echo $nome; ?><p>
 
-  <div class="Search">
-    <input type="search" placeholder="Pesquise candidatos, cargos, cidades..."/>
-    <img class="searchIcon" src = "illustrations/search.svg" alt="search"/>
-  <a class="dropdown-item" href="perfilUser.php">
   <div class="profilePic" style="margin-left:100px">
          <?php
           if ($img == $email) {
@@ -52,6 +48,26 @@
           ?>
        </div>
   </a><br>
+
+  <div class="Search">
+    <input type="search" placeholder="Pesquise candidatos, cargos, cidades..."/>
+    <img class="searchIcon" src = "illustrations/search.svg" alt="search"/>
+  <a class="dropdown-item" href="perfilUser.php">
+
+  <div class="botoes">
+    <button class="candidatos"><img src = "illustrations/candidatos.svg" alt="addIcon"/></button>
+    <button class="cargos"><img src = "illustrations/cargos.svg" alt="addIcon"/></button>
+    <button class="locais"><img src = "illustrations/locais.svg" alt="addIcon"/></button>
+  </div>
+
+  <p class="relevantText">Mais relevantes</p>
+
+
+
+
+
+
+
   <a class="add" href="cadastroResultado1.php"><img src = "illustrations/add.svg" alt="addIcon"/></a>
 
   </div>
