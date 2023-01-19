@@ -1,0 +1,81 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.greeting {
+    position: absolute;
+    width: 156px;
+    height: 35px;
+    left: 18px;
+    top: 8px;
+
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 35px;
+
+    color: #000000;
+}
+
+.Search input {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 358px;
+    height: 48px;
+    left: 16px;
+    top: 140px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    padding-left: 42px;
+
+    color: rgba(0, 0, 0, 0.5);
+
+    text-shadow: 0px 4px 50px rgba(0, 0, 0, 0.05);
+}
+
+.searchIcon {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 26px;
+    top: 150px;
+
+}
+
+.profilePic img{
+    width: 2px;
+}
+
+.add {
+    box-sizing: border-box;
+
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    left: 296px;
+    top: 748px;
+
+    border-radius: 999px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+
+    text-align: center;
+}
+
+.add img {
+    width: 42px;
+    margin-top: 10px;
+}

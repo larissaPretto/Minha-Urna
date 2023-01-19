@@ -69,6 +69,7 @@
  </div>
  <br>
  <button type="submit" class="btn btn-primary">Salvar</button>
+ <a class="dropdown-item" href="../control/sair.php">Sair</a>
  </form>
 
  </body>
