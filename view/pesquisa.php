@@ -15,7 +15,7 @@ if ($row > 0) {
 
     while ($registros = mysqli_fetch_array($registro)) {
 ?>
-        <a href="candidato.php?idCand=<?php echo $registros['ID_CANDIDATO'] ?>&turno=<?php echo $turno ?>"><?php echo $registros['NM_URNA_CANDIDATO'] ?></a>
+        <a style=border-style:dotted href="candidato.php?idCand=<?php echo $registros['ID_CANDIDATO'] ?>&turno=<?php echo $turno ?>"><?php echo $registros['NM_URNA_CANDIDATO'] ?></a>
         <br>
 <?php
     }
