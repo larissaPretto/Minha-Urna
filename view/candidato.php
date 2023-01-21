@@ -13,7 +13,7 @@
 </head>
 <p class="pageTitle">Dados do candidato</p>
 
-<div style=width: 358px;>
+<div style=width:358px;>
     <?php
     $idCand = $_GET['idCand'];
     $turno = $_GET['turno'];
