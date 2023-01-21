@@ -53,7 +53,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <div class="Search">
     <form name="frmBusca" method="POST" action="pesquisa.php" class="form-inline my-2 my-lg-0">
-      <select name="turno" class="UFTextField" id="turno">
+      <select name="turno" class="UFTextField" id="turno" required>
         <?php
         include("../model/conexao.php");
         $turno = "<option value='0'>Selecione o Turno</option>";

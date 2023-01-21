@@ -24,7 +24,7 @@
     <div class="card">
         <div class="card-body">
             <form name="frmResul1" action="cadastroResultado2.php" method="POST" enctype="multipart/form-data">
-                <select name="selectUF" class="UFTextField" id="idUF">
+                <select name="selectUF" class="UFTextField" id="idUF" required>
                     <?php
                     include("../model/conexao.php");
                     $UF = "<option value='0'>Selecione o UF</option>";
@@ -41,7 +41,7 @@
                 <p class="UFTextFieldHelp">Estado do local de votação</p>
 
 
-                <select name="selectMuni" id="idMuni" class="municipioTextField">
+                <select name="selectMuni" id="idMuni" class="municipioTextField" required>
                     <option value="">Selecione um municipio</option>
                 </select>
                 <p class="municipioTextFieldHelp">Munícipio onde ocorreu a votação</p>

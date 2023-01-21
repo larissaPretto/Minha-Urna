@@ -26,8 +26,8 @@
     ?>
     <div class="card">
         <div class="card-body">
-            <form name="frmResul1" action="cadastroResultado3.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
-                <select name="selectZona" class="zonaTextField" id="idZona">
+            <form name="frmResul1" action="cadastroResultado3.php" method="POST" enctype="multipart/form-data">
+                <select name="selectZona" class="zonaTextField" id="idZona" required>
                     <?php
                     include("../model/conexao.php");
                     $zona = "<option value='0'>Selecione a Zona</option>";
@@ -41,7 +41,7 @@
                 </select>
                 <p class="zonaTextFieldHelp">Estado do local de votação</p>
 
-                <select name="selectSecao" id="idSecao" class="secaoTextField">
+                <select name="selectSecao" id="idSecao" class="secaoTextField" required>
                     <option value="">Selecione uma seção</option>
                 </select>
                 <p class="secaoTextFieldHelp">Munícipio onde ocorreu a votação</p>

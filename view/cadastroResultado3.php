@@ -40,10 +40,10 @@
 
     <div class="card">
         <div class="card-body">
-            <form name="frmResul2" action="../model/incluirBoletim.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <form name="frmResul2" action="../model/incluirBoletim.php" method="POST" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <input name="fileUpload" type="file" class="form-control-file">
+                    <input name="fileUpload" type="file" class="form-control-file" required>
                 </div>
                 <input type="hidden" name="idUrna" id="idUrna" value="<?php echo $idUrna ?>">
                 <input type="hidden" name="idUF" id="idUrna" value="<?php echo $idUF ?>">

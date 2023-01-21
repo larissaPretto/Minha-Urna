@@ -1,7 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="pt-br">
+
+
+</head>
 <?php
 $idCand = $_GET['idCand'];
+$turno = $_GET['turno'];
 
 include("../model/conexao.php");
+
+echo '<h5">' . $turno . ' turno</h5><br>';
 
 $sql = "SELECT * FROM candidatos WHERE ID_CANDIDATO=" . $idCand;
 $registro = mysqli_query($conectado, $sql);
@@ -47,3 +57,33 @@ while ($registros4 = mysqli_fetch_array($registro4)) {
         echo '<h5"> Urna: ' . $registros6['idUrna'] . '</h5><br>';
     }
 }
+?>
+<br><br>
+
+<div class="card">
+    <div class="card-body">
+        <form name="frmResul1" action="cadastroResultado2.php" method="POST" enctype="multipart/form-data">
+            <select name="selectUF" class="UFTextField" id="idUF" required>
+                <?php
+                include("../model/conexao.php");
+                $UF = "<option value='0'>Selecione o UF</option>";
+                $sql = "SELECT * FROM estadoUF GROUP BY uf ORDER BY uf";
+                $rs = mysqli_query($conectado, $sql);
+                while ($registro = mysqli_fetch_array($rs)) {
+                    if ($registro['uf'] != "BR") {
+                        $UF = $UF . "<option value='" . $registro['id'] . "'>" . $registro['uf'] . "</option>";
+                    }
+                }
+                echo $UF;
+                ?>
+            </select>
+            <select name="selectMuni" id="idMuni" class="municipioTextField" required>
+                <option value="0">Selecione um municipio</option>
+            </select>
+        </form>
+    </div>
+    <div id="resul"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="../js/listarBol.js"></script>
+
+</html>
