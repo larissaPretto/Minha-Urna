@@ -27,7 +27,8 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
 <body>
   <p class="greeting"> Olá, <?php echo $nome; ?>
   <p>
-
+  <p class="tipoEleicoes">Eleições Gerais 2022</p>
+   
     <a class="dropdown-item" href="perfilUser.php">
       <div class="profilePic" style="margin-left:100px">
         <?php
@@ -53,10 +54,10 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <div class="Search">
     <form name="frmBusca" method="POST" action="pesquisa.php" class="form-inline my-2 my-lg-0">
-      <select name="turno" class="UFTextField" id="turno">
+      <select name="turno" class="turnoField" id="turno">
         <?php
         include("../model/conexao.php");
-        $turno = "<option value='0'>Selecione o Turno</option>";
+        $turno = "<option value='1'>Turno</option>";
         $sql = "SELECT * FROM turnos ORDER BY NM_TURNO";
         $rs = mysqli_query($conectado, $sql);
         while ($registro = mysqli_fetch_array($rs)) {
@@ -65,44 +66,10 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
         echo $turno;
         ?>
       </select>
-      <input type="search" name="busca" placeholder="Pesquise candidatos, cargos, cidades..." />
+      <input type="search" name="busca" placeholder="Pesquise um candidato" />
       <img class="searchIcon" src="illustrations/search.svg" alt="search" />
     </form>
   </div>
-
-  <p class="relevantText">Mais relevantes</p>
-
-  <!-- teste abaixo -->
-  <div class="container">
-    <?php
-    include("../model/conexao.php");
-    $sql = "SELECT * FROM VOTOS";
-    $consulta = mysqli_query($conectado, $sql);
-    while ($registro = mysqli_fetch_array($consulta)) {
-      $sqlDois = "SELECT * FROM candidatos where '$registro[idCandidato]' = id_candidato";
-      $registroDois = mysqli_fetch_array(mysqli_query($conectado, $sqlDois));
-
-      $sqlPartidos = "SELECT * FROM partidos where '$registroDois[NR_PARTIDO]' = NR_PARTIDO";
-      $registroPartidos = mysqli_fetch_array(mysqli_query($conectado, $sqlPartidos));
-
-      $sqlCargo = "SELECT * FROM cargos where '$registroDois[CD_CARGO]' = CD_CARGO";
-      $registroCargo = mysqli_fetch_array(mysqli_query($conectado, $sqlCargo));
-      echo "<p style='color: black;'>
-                            <tr>
-                                <td>$registroDois[NM_URNA_CANDIDATO]</td>
-                                <td>$registroPartidos[NM_PARTIDO]</td>
-                                <td>$registroCargo[NM_CARGO]</td>
-                                <td>$registro[votos]</td>
-                            </tr>
-                        ";
-    }
-    ?>
-    <!-- TESTE ACIMA -->
-
-
-
-
-
 
     <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
 

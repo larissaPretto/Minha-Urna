@@ -2,7 +2,7 @@
 <html>
 
 <head lang="pt-br">
-    <title>Registrar | Minha Urna</title>
+    <title>Busca | Minha Urna</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="pesquisa.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
