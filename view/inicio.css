@@ -4,7 +4,7 @@ body {
 
 .greeting {
     position: absolute;
-    width: 156px;
+    width: 350px;
     height: 35px;
     left: 18px;
     top: 8px;
@@ -83,7 +83,7 @@ body {
     border-radius: 999px;
     background: #FFFFFF;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
-    border: none;
+    border-style: none;
 
     text-align: center;
 }

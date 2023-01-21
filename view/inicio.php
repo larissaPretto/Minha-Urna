@@ -70,12 +70,6 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
     </form>
   </div>
 
-  <div class="botoes">
-    <button class="candidatos"><img src="illustrations/candidatos.svg" alt="addIcon" /></button>
-    <button class="cargos"><img src="illustrations/cargos.svg" alt="addIcon" /></button>
-    <button class="locais"><img src="illustrations/locais.svg" alt="addIcon" /></button>
-  </div>
-
   <p class="relevantText">Mais relevantes</p>
 
   <!-- teste abaixo -->

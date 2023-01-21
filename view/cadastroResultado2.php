@@ -39,12 +39,12 @@
                     echo $zona;
                     ?>
                 </select>
-                <p class="zonaTextFieldHelp">Estado do local de votação</p>
+                <p class="zonaTextFieldHelp">Zona eleitoral correspondente</p>
 
                 <select name="selectSecao" id="idSecao" class="secaoTextField">
                     <option value="">Selecione uma seção</option>
                 </select>
-                <p class="secaoTextFieldHelp">Munícipio onde ocorreu a votação</p>
+                <p class="secaoTextFieldHelp">A seção onde a votação ocorreu</p>
 
                 <input type="hidden" name="selectUF" id="idUF" value="<?php echo $idUF ?>">
                 <input type="hidden" name="selectMuni" value="<?php echo $Municipio ?>">
