@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Tempo de geração: 17-Jan-2023 às 19:32
+-- Tempo de geração: 21-Jan-2023 às 07:36
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.0.25
 
@@ -33,17 +33,31 @@ CREATE TABLE `boletim` (
   `idBoletim` int(11) NOT NULL,
   `idUrna` int(11) NOT NULL,
   `imgBoletim` varchar(50) NOT NULL,
-  `valido` tinyint(1) NOT NULL
+  `valido` tinyint(1) NOT NULL,
+  `turno` int(11) NOT NULL,
+  `branco` int(11) NOT NULL,
+  `nulo` int(11) NOT NULL,
+  `UserRegister` varchar(100) NOT NULL,
+  `userValidate` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `boletim`
 --
 
-INSERT INTO `boletim` (`idBoletim`, `idUrna`, `imgBoletim`, `valido`) VALUES
-(1, 3, 'Boletim-larissapretto009w@gmail.com.jpg', 0),
-(2, 3, 'Boletim-larissapretto009w@gmail.com.jpg', 0),
-(3, 2, 'Boletim-larissapretto009w@gmail.com', 0);
+INSERT INTO `boletim` (`idBoletim`, `idUrna`, `imgBoletim`, `valido`, `turno`, `branco`, `nulo`, `UserRegister`, `userValidate`) VALUES
+(6, 2, 'Boletim-larissapretto009w@gmail.com', 0, 1, 0, 0, '', ''),
+(7, 2, 'Boletim-larissapretto009@gmail.com.jpg', 1, 1, 24, 44, 'larissapretto0fsf09@gmail.com', 'larissapretto009@gmail.com'),
+(8, 3, 'Boletim-larissapretto009w@gmail.com', 0, 1, 0, 0, '', ''),
+(9, 2, 'Boletim-larissapretto009w@gmail.com', 0, 1, 0, 0, '', ''),
+(10, 3, 'Boletim-larissapretto009w@gmail.com', 0, 1, 0, 0, '', ''),
+(11, 2, 'Boletim-larissapretto009w@gmail.com', 0, 1, 0, 0, '', ''),
+(12, 2, 'Boletim-larissapretto009w@gmail.com', 0, 1, 0, 0, '', ''),
+(14, 2, 'Boletim-larissapretto009@gmail.com.jpg', 0, 1, 0, 0, '', ''),
+(16, 2, 'Boletim-larissapretto009@gmail.com.jpg', 0, 2, 0, 0, '', ''),
+(17, 2, 'Boletim-larissapretto009@gmail.com.jpg', 0, 2, 234, 443, '', ''),
+(18, 2, 'Boletim-larissapretto009@gmail.com.jpg', 0, 1, 111, 222, '', ''),
+(19, 2, 'Boletim-larissapretto009@gmail.com.jpg', 0, 1, 55, 66, 'larissapretto009@gmail.com', 'notValidate');
 
 -- --------------------------------------------------------
 
@@ -32826,17 +32840,19 @@ CREATE TABLE `usuario` (
   `nome` varchar(50) NOT NULL,
   `email` varchar(150) NOT NULL,
   `senha` varchar(100) NOT NULL,
-  `img` varchar(200) NOT NULL
+  `img` varchar(200) NOT NULL,
+  `nivel` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `nome`, `email`, `senha`, `img`) VALUES
-(4, 'larissaasfe', 'larissapretto0fsf09@gmail.com', 'c9266178be574fe37d8ac02421b27697', 'larissapretto0fsf09@gmail.com.jpg'),
-(5, 'lslasaslasl', 'larissapretto009w@gmail.com', 'c9266178be574fe37d8ac02421b27697', 'larissapretto009w@gmail.com'),
-(6, 'Yuri Fonseca de Morais', '123@gmail.com', '392c9d59d124c9c7dbcd48311c1acb61', '123@gmail.com');
+INSERT INTO `usuario` (`idUsuario`, `nome`, `email`, `senha`, `img`, `nivel`) VALUES
+(4, 'larissaasfe', 'larissapretto0fsf09@gmail.com', 'c9266178be574fe37d8ac02421b27697', 'larissapretto0fsf09@gmail.com.jpg', 0),
+(5, 'lslasaslasl', 'larissapretto009w@gmail.com', 'c9266178be574fe37d8ac02421b27697', 'larissapretto009w@gmail.com', 1),
+(6, 'Yuri Fonseca de Morais', '123@gmail.com', '392c9d59d124c9c7dbcd48311c1acb61', '123@gmail.com', 0),
+(13, 'larissa', 'larissapretto009@gmail.com', 'c9266178be574fe37d8ac02421b27697', 'larissapretto009@gmail.com.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -32849,6 +32865,25 @@ CREATE TABLE `votos` (
   `idCandidato` int(11) NOT NULL,
   `votos` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Extraindo dados da tabela `votos`
+--
+
+INSERT INTO `votos` (`idBoletim`, `idCandidato`, `votos`) VALUES
+(6, 5698, 34),
+(7, 6961, 6),
+(7, 15759, 77),
+(7, 19510, 4),
+(7, 19510, 4),
+(8, 13865, 88),
+(10, 9665, 100),
+(11, 18869, 200),
+(11, 18869, 23),
+(12, 18869, 40),
+(14, 4793, 45),
+(18, 16562, 666),
+(19, 13865, 556);
 
 --
 -- Índices para tabelas despejadas
@@ -32938,7 +32973,7 @@ ALTER TABLE `votos`
 -- AUTO_INCREMENT de tabela `boletim`
 --
 ALTER TABLE `boletim`
-  MODIFY `idBoletim` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idBoletim` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `candidatos`
@@ -32968,7 +33003,7 @@ ALTER TABLE `urna`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restrições para despejos de tabelas

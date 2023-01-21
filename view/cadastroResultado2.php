@@ -27,6 +27,11 @@
     <div class="card">
         <div class="card-body">
             <form name="frmResul1" action="cadastroResultado3.php" method="POST" enctype="multipart/form-data">
+                <input type="radio" id="1" name="turno" value="1">
+                <label for="user">1 turno</label><br>
+                <input type="radio" id="2" name="turno" value="2">
+                <label for="adm">2 turno</label><br>
+
                 <select name="selectZona" class="zonaTextField" id="idZona" required>
                     <?php
                     include("../model/conexao.php");

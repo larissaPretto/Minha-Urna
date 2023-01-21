@@ -18,6 +18,8 @@ while ($registros = mysqli_fetch_array($registro)) {
             echo '<h5">  votos válidos: ' . $registros3['tVotos'] . '</h5>';
         }
 ?>
+        <p>votos brancos: <?php echo $registros2['branco'] ?></p>
+        <p>votos nulos: <?php echo $registros2['nulo'] ?></p>
         <a href="imgBol.php?idBol=<?php echo $registros2['idBoletim'] ?>"> Img Boletim</a>
         <br>
 <?php

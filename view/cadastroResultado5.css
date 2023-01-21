@@ -20,11 +20,10 @@ body {
 
 img {
     position: absolute;
-    width: 308px;
-    height: 175px;
-    left: 41px;
-    top: 94px;
-
+    width: 186px;
+    height: 186px;
+    left: 99px;
+    top: 82px;
 
     background: url(30969010_m003t0476_d_chair_14jun22.jpg);
     border-radius: 999px;
@@ -32,9 +31,9 @@ img {
 
 .title {
     position: absolute;
-    width: 263px;
+    width: 215px;
     height: 16px;
-    left: 64px;
+    left: 88px;
     top: 276px;
 
     font-family: 'Plus Jakarta Sans';
@@ -61,7 +60,7 @@ img {
     width: 323px;
     height: 16px;
     left: 50px;
-    top: 334px;
+    top: 343px;
 
     font-family: 'Plus Jakarta Sans';
     font-style: normal;
@@ -79,7 +78,7 @@ img {
     width: 358px;
     height: 64px;
     left: 16px;
-    top: 412px;
+    top: 404px;
 }
 
 .card-body select {
@@ -103,39 +102,78 @@ img {
 
 }
 
-.form-group input {
-    box-sizing: border-box;
-
+.cargoTextField {
     position: absolute;
     width: 358px;
-    height: 52px;
+    height: 64px;
+}
 
-    border: 2px solid #134074;
-    border-radius: 999px;
-    padding: 12px;
-    padding-left: 17px;
+.candidatoTextField {
+    position: absolute;
+    width: 240px;
+    height: 64px;
+    top: 80px;
+}
 
-    font-family: 'Product Sans';
+.form-control {
+    position: absolute;
+    width: 90px;
+    height: 60px;
+    top: 80px;
+    left: 250px;
+    border-radius: 12px;
+    padding-left: 12px;
+    border-style: solid;
+
+    font-family: 'Plus Jakarta Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 24px;
 
     display: flex;
     align-items: center;
     letter-spacing: 0.5px;
+
+    color: rgba(0, 0, 0, 0.5);
+    border-width: 0.5px;
 }
 
-button {
+.adicionar {
+    box-sizing: border-box;
+
     position: absolute;
     width: 358px;
     height: 52px;
     left: 16px;
-    top: 630px;
+    top: 568px;
+
+    border: 2px solid #134074;
+    border-radius: 999px;
+
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+
+    letter-spacing: 0.5px;
+
+    color: #134074;
+
+    background-color: #FFFFFF;
+}
+
+.finalizar {
+    position: absolute;
+    width: 358px;
+    height: 52px;
+    left: 16px;
+    top: 657px;
 
     background: #1F64B4;
     border-radius: 999px;
-    border-width: 0px;
+    border: 0px;
 
     font-family: 'Plus Jakarta Sans';
     font-style: normal;

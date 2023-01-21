@@ -5,6 +5,9 @@ session_start();
 $idUrna = $_POST['idUrna'];
 $email = $_SESSION['email'];
 $idUF = $_POST['idUF'];
+$turno = $_POST['turno'];
+$branco = $_POST['branco'];
+$nulo = $_POST['nulo'];
 
 if (isset($_FILES['fileUpload'])) {
     date_default_timezone_set("Brazil/East");
@@ -22,10 +25,15 @@ $SQL = "INSERT INTO
 				(null,
 				'$idUrna',
 				'$new_name',
-                0)";
+                '0',
+                '$turno',
+                '$branco',
+                '$nulo',
+                '$email',
+                'notValidate')";
 mysqli_query($conectado, $SQL);
 $idBol = mysqli_insert_id($conectado);
 
-header('location: ../view/cadastroResultado4.php?idUF=' . $idUF . '&idBol=' . $idBol);
+header('location: ../view/cadastroResultado5.php?idUF=' . $idUF . '&idBol=' . $idBol);
 
 ?>
