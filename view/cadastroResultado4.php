@@ -35,7 +35,7 @@
                     $sql = "SELECT * FROM cargos ORDER BY NM_CARGO";
                     $rs = mysqli_query($conectado, $sql);
                     while ($registro = mysqli_fetch_array($rs)) {
-                        $cargo = $cargo . "<option value='" . $registro['CD_CARGO'] . "'>" . $registro['NM_CARGO'] . "<option>";
+                        $cargo = $cargo . "<option value='" . $registro['CD_CARGO'] . "'>" . $registro['NM_CARGO'] . "</option>";
                     }
                     echo $cargo;
                     ?>

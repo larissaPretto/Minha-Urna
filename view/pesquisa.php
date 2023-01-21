@@ -9,37 +9,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-    <p class="pageTitle">Resultados da busca</p>
-    <img class="searchIcon" src="illustrations/search.svg" alt="search" />
-    <br>
-    <br>
-    <br>
+<p class="pageTitle">Resultados da busca</p>
+<img class="searchIcon" src="illustrations/search.svg" alt="search" />
+<br>
+<br>
+<br>
 
 
-    <?php
-    $busca = $_POST['busca'];
-    $turno = $_POST['turno'];
+<?php
+$busca = $_POST['busca'];
+$turno = $_POST['turno'];
 
-    include("../model/conexao.php");
+include("../model/conexao.php");
 
-    $sql = "SELECT * FROM candidatos WHERE NM_URNA_CANDIDATO LIKE '%" . $busca . "%' ORDER BY NM_URNA_CANDIDATO";
-    $registro = mysqli_query($conectado, $sql);
+$sql = "SELECT * FROM candidatos WHERE NM_URNA_CANDIDATO LIKE '%" . $busca . "%' ORDER BY NM_URNA_CANDIDATO";
+$registro = mysqli_query($conectado, $sql);
 
-    $row = mysqli_num_rows($registro);
+$row = mysqli_num_rows($registro);
 
-    if ($row > 0) {
+if ($row > 0) {
 
-        echo '<h1  style=" margin-top:18px; margin-left: 50px;
+    echo '<h1  style=" margin-top:18px; margin-left: 50px;
             font-style: normal;
             font-weight: 700;
             font-size: 20px;
             line-height: 8px;"> ' . $busca . '</h1>';
 
-        while ($registros = mysqli_fetch_array($registro)) {
-    ?>
+    while ($registros = mysqli_fetch_array($registro)) {
+?>
 
-            <br>
-            <p style="font-family: 'Plus Jakarta Sans';
+        <br>
+        <p style="font-family: 'Plus Jakarta Sans';
                 font-style: normal;
                 font-weight: 400;
                 font-size: 14px;
@@ -48,7 +48,7 @@
                 left: 41px;
                 width: 71px;
                 height: 18px;">Candidato</p>
-            <a style="box-sizing: border-box;
+        <a style="box-sizing: border-box;
                 position: absolute;
                 left: 14px;
                 width: 360px;
@@ -65,16 +65,13 @@
                 font-size: 18px;
                 line-height: 25px;
                 text-decoration: none;
-
+ 
                 color: #000000;" href="candidato.php?idCand=<?php echo $registros['ID_CANDIDATO'] ?>&turno=<?php echo $turno ?>"><?php echo $registros['NM_URNA_CANDIDATO'] ?></a>
-            <br>
-            <br>
-            <br>
-    <?php
-        }
-    } else {
-        echo '<h1  style="margin-top:90px">Nada encontrado</h1>';
+        <br>
+        <br>
+        <br>
+<?php
     }
-
-
-
+} else {
+    echo '<h1  style="margin-top:90px">Nada encontrado</h1>';
+}

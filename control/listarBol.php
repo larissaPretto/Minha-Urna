@@ -13,5 +13,7 @@ $query = ("SELECT *
 
 $registro = mysqli_query($conectado, $query);
 while ($registros = mysqli_fetch_array($registro)) {
-    echo '<h5"> Zona: ' . $registros['zona'] . '</h5><br>';
+?>
+    <a href="secoes.php?idZona=<?php echo $registros['zona'] ?>">Zona: <?php echo $registros['zona'] ?></a>
+<?php
 }
