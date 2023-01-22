@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
 
 <head lang="pt-br">
     <title>Candidato | Minha Urna</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/pesquisa.css">
+    <link rel="stylesheet" href="css/candidato.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -13,14 +12,13 @@
 </head>
 <p class="pageTitle">Dados do candidato</p>
 
+<body>
 <div style=width:358px;>
     <?php
     $idCand = $_GET['idCand'];
     $turno = $_GET['turno'];
 
     include("../model/conexao.php");
-
-    echo '<h5">' . $turno . ' turno</h5><br>';
 
     $sql = "SELECT * FROM candidatos WHERE ID_CANDIDATO=" . $idCand;
     $registro = mysqli_query($conectado, $sql);
@@ -61,16 +59,16 @@
     $registro2 = mysqli_query($conectado, $sql2);
     $registros2 = mysqli_fetch_array($registro2);
 
-    echo '<h5 style="position: absolute;
+    echo '<h5 style="position:relative;
+    text-align: right;
     width: auto;
     height: 18px;
-    right: 32px;
-    top: 90px;
+    margin-right: 8px;
+    margin-top: 61px;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 18px;
-    color: #000000;"">' . $registros2['SG_PARTIDO'] . '</h5><br>';
+    line-height: 18px;;"">' . $registros2['SG_PARTIDO'] . '</h5><br>';
 
     $sql3 = "SELECT * FROM cargos WHERE CD_CARGO=" . $registros['CD_CARGO'];
     $registro3 = mysqli_query($conectado, $sql3);
@@ -141,6 +139,17 @@ color: #000000;"">' . $registros7['uf'] . '</h5><br>';
     echo '<h5 style="position: absolute;
     width: auto;
     height: 18px;
+    left: 132px;
+    top: 157px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;"">' . $turno . 'º Turno</h5><br>';
+
+    echo '<h5 style="position: absolute;
+    width: auto;
+    height: 18px;
     left: 36px;
     top: 168px;
     font-style: normal;
@@ -161,10 +170,10 @@ color: #000000;"">' . $registros7['uf'] . '</h5><br>';
     <div class="card">
         <div class="card-body">
             <form name="frmResul1" action="cadastroResultado2.php" method="POST" enctype="multipart/form-data">
-                <select name="selectUF" class="UFTextField" id="idUF" required>
+                <select name="selectUF" class="UFField" id="idUF" required>
                     <?php
                     include("../model/conexao.php");
-                    $UF = "<option value='0'>Selecione o UF</option>";
+                    $UF = "<option value='0'>UF</option>";
                     $sql = "SELECT * FROM estadoUF GROUP BY uf ORDER BY uf";
                     $rs = mysqli_query($conectado, $sql);
                     while ($registro = mysqli_fetch_array($rs)) {
@@ -175,13 +184,16 @@ color: #000000;"">' . $registros7['uf'] . '</h5><br>';
                     echo $UF;
                     ?>
                 </select>
-                <select name="selectMuni" id="idMuni" class="municipioTextField" required>
-                    <option value="0">Selecione um municipio</option>
+                <select name="selectMuni" id="idMuni" class="municipioField" required>
+                    <option value="0">Municipio</option>
                 </select>
             </form>
         </div>
-        <div id="resul"></div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script src="../js/listarBol.js"></script>
-
+        <div class=zonas id="resul">
+        <br>
+    <br>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+            <script src="../js/listarBol.js"></script>
+        </div>
+                </body>
 </html>

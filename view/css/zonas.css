@@ -1,0 +1,68 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+
+}
+
+.pageTitle {
+    position: absolute;
+    width: 228px;
+    height: 16px;
+    left: 16px;
+    top: 8px;
+
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+
+    color: #000000;
+}
+
+form {
+    margin-left:6px;
+}
+
+form p {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    position: absolute;
+    left: 41px;
+    width: 71px;
+    height: 18px;
+}
+
+.button{
+    box-sizing: border-box;
+    left: 32px;
+    width: 360px;
+    height: 72px;
+    padding-top: 32px;
+    padding-left: 26px;
+    background-color: white;
+
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    text-decoration: none;
+ 
+    color: #000000;
+}
+
+.secaoNumber {
+    font-style: normal;
+    margin-top: 32px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+
+    color: #000000;
+}
