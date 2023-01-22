@@ -11,17 +11,18 @@
 </head>
 
 <body>
-<p class="pageTitle">Dados da seção</p>
+    <p class="pageTitle">Dados da seção</p>
 
-<?php
-include("../model/conexao.php");
-$idBol = $_POST['idBol'];
-$zona = $_POST['zona'];
-$secao = $_POST['secao'];
+    <?php
+    include("../model/conexao.php");
+    $idBol = $_POST['idBol'];
+    $idMuni = $_POST['idMuni'];
+    $zona = $_POST['zona'];
+    $secao = $_POST['secao'];
 
-$cargos = array(1, 3, 5, 6, 7, 8);
+    $cargos = array(1, 3, 5, 6, 7, 8);
 
-echo '<h5 style="position: absolute;
+    echo '<h5 style="position: absolute;
     width: auto;
     height: 25px;
     left: 327px;
@@ -32,7 +33,7 @@ echo '<h5 style="position: absolute;
     line-height: 25px;
     color: #000000;"""> Zona</h5><br>';
 
-echo '<h5 style="position: absolute;
+    echo '<h5 style="position: absolute;
     width: auto;
     height: 25px;
     right: 16px;
@@ -44,7 +45,7 @@ echo '<h5 style="position: absolute;
     color: #000000;""">' . $zona . '</h5><br>';
 
 
-echo '<h5 style="position: absolute;
+    echo '<h5 style="position: absolute;
     width: 62px;
     height: 25px;
     left: 21px;
@@ -53,7 +54,7 @@ echo '<h5 style="position: absolute;
     font-weight: 600;
     font-size: 20px;
     line-height: 25px;"""> Seção</h5>';
-echo '<h5 style="position: absolute;
+    echo '<h5 style="position: absolute;
     width: 62px;
     height: 18px;
     left: 21px;
@@ -63,71 +64,74 @@ echo '<h5 style="position: absolute;
     font-size: 14px;
     line-height: 18px;"""> ' . $secao . '</h5>';
 
-$sql = "SELECT * FROM boletim WHERE idBoletim = " . $idBol;
-$registro = mysqli_query($conectado, $sql);
-while ($registros = mysqli_fetch_array($registro)) {
-?>
-    <img style="position: absolute;
+    $sql = "SELECT * FROM boletim WHERE idBoletim = " . $idBol;
+    $registro = mysqli_query($conectado, $sql);
+    while ($registros = mysqli_fetch_array($registro)) {
+    ?>
+        <img style="position: absolute;
     left: 100px;
     top: 98px;" src="illustrations/add_circle.svg">
-    <img style="position: absolute;
+        <img style="position: absolute;
     left: 100px;
     top: 122px;" src="illustrations/verificado.svg">
-    <p style="position: absolute;
+        <p style="position: absolute;
     left: 128px;
     top: 82px;"><?php echo $registros['UserRegister'] ?></p>
-    <p style="position: absolute;
+        <p style="position: absolute;
     left: 128px;
     top: 108px;"><?php echo $registros['userValidate'] ?></p>
-    <br>
-    <br>
-    <br>
-    <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
-    <?php
-    $sql2 = "SELECT * FROM votos WHERE idBoletim = " . $idBol;
-    for ($i = 0; $i < 6; $i++) {
-        echo "<br>";
-        echo "<br>";
-        $teste = 0;
-        echo '<img style="margin-left: 8px;" src="illustrations/barra.svg">';
-        if ($cargos[$i] == 1) {
-            echo '<h5 style="margin-top:1px; margin-left:150px; margin-bottom: -32px;"">Presidente</h5><br>';
-        } else if ($cargos[$i] == 3) {
-            echo '<h5 style="margin-top:1px; margin-left:147px; margin-bottom: -32px;"">Governador</h5><br>';
-        } else if ($cargos[$i] == 5) {
-            echo '<h5 style="margin-top:1px; margin-left:157px; margin-bottom: -32px;"">Senador</h5><br>';
-        } else if ($cargos[$i] == 6) {
-            echo '<h5 style="margin-top:1px; margin-left:127px; margin-bottom: -32px;"">Deputado Federal</h5><br>';
-        } else if ($cargos[$i] == 7) {
-            echo '<h5 style="margin-top:1px; margin-left:127px; margin-bottom: -32px;"">Deputado Estadual</h5><br>';
-        } else if ($cargos[$i] == 8) {
-            echo '<h5 style="margin-top:1px; margin-left:128px; margin-bottom: -32px;"">Deputado Distrital</h5><br>';
-        }
-        echo '<img style="margin-left:8px; margin-bottom=1px;"src="illustrations/barra.svg">';
-        echo "<br>";
-        $registro2 = mysqli_query($conectado, $sql2);
-        while ($registros2 = mysqli_fetch_array($registro2)) {
-
-            $cand = $registros2['idCandidato'];
-            $sql3 = "SELECT * FROM candidatos WHERE CD_CARGO = '$cargos[$i]' and ID_CANDIDATO = '$cand' GROUP BY '$cand'";
-            $registro3 = mysqli_query($conectado, $sql3);
-            $row = mysqli_num_rows($registro3);
-            if ($row > 0) {
-                $teste = 1;
+        <?php
+        $sql2 = "SELECT * FROM votos WHERE idBoletim = " . $idBol;
+        $anterior = "nada";
+        for ($i = 0; $i < 6; $i++) {
+            echo "<br>";
+            echo "<br>";
+            $teste = 0;
+            echo '<img style="margin-left: 8px;" src="illustrations/barra.svg">';
+            if ($cargos[$i] == 1) {
+                echo '<h5 style="margin-top:1px; margin-left:150px; margin-bottom: -32px;"">Presidente</h5><br>';
+            } else if ($cargos[$i] == 3) {
+                echo '<h5 style="margin-top:1px; margin-left:147px; margin-bottom: -32px;"">Governador</h5><br>';
+            } else if ($cargos[$i] == 5) {
+                echo '<h5 style="margin-top:1px; margin-left:157px; margin-bottom: -32px;"">Senador</h5><br>';
+            } else if ($cargos[$i] == 6) {
+                echo '<h5 style="margin-top:1px; margin-left:127px; margin-bottom: -32px;"">Deputado Federal</h5><br>';
+            } else if ($cargos[$i] == 7) {
+                echo '<h5 style="margin-top:1px; margin-left:127px; margin-bottom: -32px;"">Deputado Estadual</h5><br>';
+            } else if ($cargos[$i] == 8) {
+                echo '<h5 style="margin-top:1px; margin-left:128px; margin-bottom: -32px;"">Deputado Distrital</h5><br>';
             }
-            while ($registros3 = mysqli_fetch_array($registro3)) {
-                echo '<h5 style="font-style: normal;
+            echo '<img style="margin-left:8px; margin-bottom=1px;"src="illustrations/barra.svg">';
+            echo "<br>";
+            $registro2 = mysqli_query($conectado, $sql2);
+            while ($registros2 = mysqli_fetch_array($registro2)) {
+
+                $cand = $registros2['idCandidato'];
+                $sql3 = "SELECT * FROM candidatos WHERE CD_CARGO = '$cargos[$i]' and ID_CANDIDATO = '$cand' GROUP BY '$cand'";
+                $registro3 = mysqli_query($conectado, $sql3);
+                $row = mysqli_num_rows($registro3);
+                if ($row > 0) {
+                    $teste = 1;
+                }
+                while ($registros3 = mysqli_fetch_array($registro3)) {
+                    if ($anterior == $registros3['NM_URNA_CANDIDATO'])
+                        continue;
+                    echo '<h5 style="font-style: normal;
                     font-weight: 600;
                     font-size: 20px;
                     margin-top:8px;
                     margin-bottom:0px;
                     margin-left: 10px;""> ' . $registros3['NM_URNA_CANDIDATO'] . '</h5>';
-                
-                $sql4 = "SELECT sum(votos) as vtotal FROM votos WHERE idCandidato = '$cand' and idBoletim = '$idBol' ";
-                $registro4 = mysqli_query($conectado, $sql4);
-                while ($registros4 = mysqli_fetch_array($registro4)) {
-                    echo '<h5 style="
+
+                    $sql4 = "SELECT sum(votos) as vtotal FROM votos WHERE idCandidato = '$cand' and idBoletim = '$idBol' ";
+                    $registro4 = mysqli_query($conectado, $sql4);
+                    while ($registros4 = mysqli_fetch_array($registro4)) {
+                        echo '<h5 style="
                     position:absolute;
                     width: auto; 
                     margin-top: -26px;
@@ -136,23 +140,24 @@ while ($registros = mysqli_fetch_array($registro)) {
                     font-weight: 600;
                     font-size: 20px;
                     line-height: 25px;"">' . $registros4['vtotal'] . '</h5>';
+                    }
+                    echo '<img style="margin-left:8px; margin-top: 1px; margin-bottom=1px;"src="illustrations/barra.svg">';
+                    $anterior = $registros3['NM_URNA_CANDIDATO'];
                 }
-                echo '<img style="margin-left:8px; margin-top: 1px; margin-bottom=1px;"src="illustrations/barra.svg">';
             }
-        }
-        if ($row == 0 and  $teste == 0) {
-            echo '<h5 style="font-style: normal;
+            if ($row == 0 and  $teste == 0) {
+                echo '<h5 style="font-style: normal;
                 font-weight: 400;
                 font-size: 20px;
                 margin-top:8px;
                 margin-bottom:1px;
                 margin-left: 58px;"">Sem votos para esse cargo</h5>';
                 echo '<img style="margin-left:8px; margin-top: 4px; margin-bottom=1px;"src="illustrations/barra.svg">';
+            }
         }
+        ?>
+        <br>
+        <a class href="imgBol.php?idBol=<?php echo $registros['idBoletim'] ?>">Ver foto do boletim</a><br>
+        <a class="verificar" href="https://resultados.tse.jus.br/oficial/app/index.html#/eleicao;e=e544;uf=rs;ufbu=rs;mubu=<?php echo $idMuni ?>;zn=<?php echo $zona ?>;se=<?php echo $secao ?>/dados-de-urna/boletim-de-urna"> Confira no TSE</a><br>
+    <?php
     }
-    ?>
-    <br>
-    <a class href="imgBol.php?idBol=<?php echo $registros['idBoletim'] ?>">Ver foto do boletim</a><br>
-    <a class="verificar" href="https://resultados.tse.jus.br/oficial/app/index.html#/eleicao;e=e544;uf=rs;ufbu=rs;mubu=88412;zn=0041;se=0004/dados-de-urna/boletim-de-urna"> Confira no TSE</a><br>
-<?php
-}
