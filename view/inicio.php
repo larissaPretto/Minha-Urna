@@ -21,6 +21,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
   $nome = $produto['nome'];
   $img = $produto['img'];
   $idUsuario = $produto['idUsuario'];
+  $nivel = $produto['nivel'];
 }
 ?>
 
@@ -70,8 +71,17 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
       <img class="searchIcon" src="illustrations/search.svg" alt="search" />
     </form>
   </div>
-
-  <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
-
+  <?php
+  if ($nivel == 1) {
+  ?>
+    <a href="verificarBol.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
+    <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
+  <?php
+  } else {
+  ?>
+    <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
+  <?php
+  }
+  ?>
   </div>
 </body>
