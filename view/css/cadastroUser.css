@@ -1,71 +1,46 @@
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
+    align-items: center;
+    text-align: center;
+    width: 390px;
 }
 
 img {
-    position: absolute;
+    position: relative;
     width: 231px;
     height: 225px;
-    left: 156px;
-    top: 62px;
+    left: 78px;
+    top: 48px;
 
     background: url(computer-security-with-login-password-padlock.jpg);
 }
 
 .title {
-    position: absolute;
-    width: 79px;
-    height: 34px;
-    left: 21px;
-    top: 300px;
-    
-    font-family: 'Plus Jakarta Sans';
-    font-style: normal;
+    position: relative;
+    text-align: left;
+    margin-left: 16px;
+    margin-top: 56px;
+
     font-weight: 700;
     font-size: 26px;
     line-height: 33px;
-    text-align: center;
-    
-    color: #000000;
 }
 
 .subtitle {
-    position: absolute;
-    width: 177px;
-    height: 21px;
-    left: 23px;
-    top: 340px;
+    position: relative;
+    text-align: left;
+    margin-left: 16px;
     
-    font-family: 'Plus Jakarta Sans';
-    font-style: normal;
     font-weight: 400;
     font-size: 13px;
     line-height: 24px;
-    /* or 185% */
-    
-    display: flex;
-    align-items: center;
-    text-align: center;
     letter-spacing: 0.5px;
-    
-    color: #000000;
 }
 
 .container-fluid {
-    position: absolute;
-    width: 358px;
-    left: 16px;
-    top: 368px;
-}
-
-.invalid-feedback {
-    margin-bottom: -8px;
-    margin-left: 16px;
-}
-
-.passwordHelp {
-    margin-left: 16px;
-    color: #808080;
+    position: relative;
+    width: 90%;
+    margin-top: 24px;
 }
 
 .container-fluid input {
@@ -77,56 +52,46 @@ img {
     border-radius: 12px;
     height: 64px;
     padding-left: 24px;
-    font-family: 'Plus Jakarta Sans';
-    font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
 
-    display: flex;
-    align-items: center;
     letter-spacing: 0.5px;
+}
 
-    color: rgba(0, 0, 0, 0.5);
-
+.passwordHelp {
+    color: #808080;
 }
 
 .entrar {
-    position: absolute;
-    width: 326px;
-    left: 33px;
+    position: relative;
+    width: 82%;
     height: 52px;
-    top: 654px;
+    margin-top: 0px;
 
     background: #1F64B4;
     border-radius: 999px;
     border: 0px;
 
-    font-family: 'Plus Jakarta Sans';
-    font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
-
     letter-spacing: 0.5px;
 
     color: #FFFFFF;
 }
 
 .helpText {
-    position: absolute;
-    width: 200px;
-    height: 24px;
-    left: 84px;
-    top: 718px;
+    position: relative;
+    text-align: center;
+    margin-top: 24px;
 
-    font-family: 'Plus Jakarta Sans';
-    font-style: normal;
+    height: 24px;
+
     font-weight: 400;
     font-size: 12px;
     line-height: 24px;
 
-    display: flex;
     align-items: center;
     letter-spacing: 0.5px;
 
@@ -135,25 +100,26 @@ img {
 
 a {
     box-sizing: border-box;
+    position: relative;
+    top: 8px;
 
-    position: absolute;
-    width: 326px;
+    width: 98%;
     height: 52px;
-    left: 33px;
-    top: 749px;
 
     border: 2px solid #1F64B4;
     border-radius: 999px;
 
-    font-family: 'Plus Jakarta Sans';
-    font-style: normal;
+    padding: 16px 29.5% 16px 29.5%;
     font-weight: 400;
     font-size: 14px;
-    line-height: 24px;
 
     text-align: center;
     letter-spacing: 0.5px;
-    line-height: 48px;
 
     color: #1F64B4;
     }
+
+.invalid-feedback {
+    margin-bottom: -8px;
+    margin-left: 16px;
+}

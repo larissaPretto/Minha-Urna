@@ -15,57 +15,56 @@
 <body>
 
   <img src="illustrations/loginSecurity.png">
-  <p class="title">Entrar</p>
+  <p class="title">Registrar</p>
   <p class="subtitle">Digite as suas informações</p>
-  <div class="card">
-    <div class="container-fluid">
 
-      <form name="frmUsuario" action="escolheUser.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
-        <div class="nomeTextField">
-          <input type="text" name="nome" class="form-control" placeholder="Nome" required>
-        </div>
+  <div class="container-fluid">
 
-        <div class="emailTextField">
-          <input name="email" type="email" class="form-control" placeholder="E-mail" required>
-        </div>
+    <form name="frmUsuario" action="escolheUser.php" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+      <div class="nomeTextField">
+        <input type="text" name="nome" class="form-control" placeholder="Nome" required>
+      </div>
 
-        <div class="passwordTextField">
-          <input name="senha" type="password" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Senha" required minlength="8" maxlength="15">
-          <small id="passwordHelpBlock" class="passwordHelp">
-            Sua senha deve conter de 8 a 15 caracteres.
-          </small>
-        </div>
-    </div>
+      <div class="emailTextField">
+        <input name="email" type="email" class="form-control" placeholder="E-mail" required>
+      </div>
+
+      <div class="passwordTextField">
+        <input name="senha" type="password" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Senha" required minlength="8" maxlength="15">
+        <small id="passwordHelpBlock" class="passwordHelp">
+          Sua senha deve conter de 8 a 15 caracteres.
+        </small>
+      </div>
   </div>
-  </div>
-  <br>
-  <button type="submit" class="entrar">Criar conta</button><br>
+</div>
+<br>
+<button type="submit" class="entrar">Criar conta</button><br>
 
-  <p class="helpText">Se já esteve aqui antes, faça o login!</p>
-  <a href="login.php">Fazer login</a>
-  <br>
+<p class="helpText">Se já esteve aqui antes, faça o login!</p>
+<a href="login.php">Fazer login</a>
+<br>
 
-  </form>
-  </fieldset>
-  <script>
-    (function() {
-      'use strict';
-      window.addEventListener('load', function() {
+</form>
+</fieldset>
+<script>
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
 
-        var forms = document.getElementsByClassName('needs-validation');
+      var forms = document.getElementsByClassName('needs-validation');
 
-        var validation = Array.prototype.filter.call(forms, function(form) {
-          form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-          }, false);
-        });
-      }, false);
-    })();
-  </script>
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
