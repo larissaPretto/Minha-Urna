@@ -28,8 +28,6 @@
     $idZona = $_POST['selectZona'];
     $idSecao = $_POST['selectSecao'];
     $turno = $_POST['turno'];
-    $branco = $_POST['branco'];
-    $nulo = $_POST['nulo'];
 
     $query = ("SELECT * FROM urna
         WHERE idUF = '$idUF' and idMuni = '$Municipio' 
@@ -51,8 +49,7 @@
                 <input type="hidden" name="idUrna" id="idUrna" value="<?php echo $idUrna ?>">
                 <input type="hidden" name="idUF" id="idUF" value="<?php echo $idUF ?>">
                 <input type="hidden" name="turno" id="turno" value="<?php echo $turno ?>">
-                <input type="hidden" name="branco" id="branco" value="<?php echo $branco ?>">
-                <input type="hidden" name="nulo" id="nulo" value="<?php echo $nulo ?>">
+
         </div>
     </div>
     <br>

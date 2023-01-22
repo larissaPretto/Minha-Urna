@@ -26,7 +26,7 @@
     ?>
     <div class="card">
         <div class="card-body">
-            <form name="frmResul1" action="cadastroResultado3.php" method="POST" enctype="multipart/form-data">
+            <form name="frmResul1" action="cadastroResultado4.php" method="POST" enctype="multipart/form-data">
                 <input type="radio" id="1" name="turno" value="1">
                 <label for="user">1 turno</label><br>
                 <input type="radio" id="2" name="turno" value="2">

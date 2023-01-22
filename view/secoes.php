@@ -19,8 +19,14 @@ while ($registros = mysqli_fetch_array($registro)) {
         }
 ?>
         <p>votos brancos: <?php echo $registros2['branco'] ?></p>
-        <p>votos nulos: <?php echo $registros2['nulo'] ?></p>
-        <a href="imgBol.php?idBol=<?php echo $registros2['idBoletim'] ?>"> Img Boletim</a>
+        <p>votos nulos: <?php echo $registros2['nulo'] ?></p><br>
+        <p>Usuario que registrou: <?php echo $registros2['UserRegister'] ?></p>
+        <p>Usuario que validou: <?php echo $registros2['userValidate'] ?></p>
+
+        <a href="imgBol.php?idBol=<?php echo $registros2['idBoletim'] ?>"> Img Boletim</a><br>
+        <a href="https://resultados.tse.jus.br/oficial/app/index.html#/eleicao;e=e544;uf=rs;ufbu=rs;mubu=88412;zn=0041;se=0004/dados-de-urna/boletim-de-urna"> Confira no TSE</a><br>
+
+
         <br>
 <?php
     }

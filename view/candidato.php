@@ -155,18 +155,6 @@ color: #000000;"">' . $registros7['uf'] . '</h5><br>';
 
     color: #000000;"">' . $registros5['tvotos'] . '</h5><br><br>';
     '</h5><br>';
-
-    $sql4 = "SELECT idBoletim FROM votos WHERE idCandidato=" . $idCand . " GROUP BY idBoletim";
-    $registro4 = mysqli_query($conectado, $sql4);
-    while ($registros4 = mysqli_fetch_array($registro4)) {
-
-        $sql6 = "SELECT * FROM boletim WHERE idboletim=" . $registros4['idBoletim'];
-        $registro6 = mysqli_query($conectado, $sql6);
-        while ($registros6 = mysqli_fetch_array($registro6)) {
-            echo '<h5"> Boletim: ' . $registros6['idBoletim'] . '</h5><br>';
-            echo '<h5"> Urna: ' . $registros6['idUrna'] . '</h5><br>';
-        }
-    }
     ?>
     <br><br>
 
