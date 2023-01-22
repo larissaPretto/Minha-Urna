@@ -22,7 +22,7 @@ $turno = $_POST['turno'];
 
 include("../model/conexao.php");
 
-$sql = "SELECT * FROM candidatos WHERE NM_URNA_CANDIDATO LIKE '%" . $busca . "%' ORDER BY NM_URNA_CANDIDATO";
+$sql = "SELECT * FROM candidatos WHERE NR_TURNO =" . $turno . " AND NM_URNA_CANDIDATO LIKE '%" . $busca . "%' ORDER BY NM_URNA_CANDIDATO";
 $registro = mysqli_query($conectado, $sql);
 
 $row = mysqli_num_rows($registro);
