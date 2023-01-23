@@ -15,6 +15,15 @@
 
     <?php
     include("../model/conexao.php");
+    include('../control/verificar.php');
+
+    $email = $_SESSION['email'];
+    $sql = "SELECT * from usuario where email = '$email'";
+    $produtos = mysqli_query($conectado, $sql);
+    while ($produto = mysqli_fetch_assoc($produtos)) {
+        $nivel = $produto['nivel'];
+    }
+
     $idBol = $_POST['idBol'];
     $idMuni = $_POST['idMuni'];
     $zona = $_POST['zona'];
@@ -158,6 +167,15 @@
         ?>
         <br>
         <a class href="imgBol.php?idBol=<?php echo $registros['idBoletim'] ?>">Ver foto do boletim</a><br>
-        <a class="verificar" href="https://resultados.tse.jus.br/oficial/app/index.html#/eleicao;e=e544;uf=rs;ufbu=rs;mubu=<?php echo $idMuni ?>;zn=<?php echo $zona ?>;se=<?php echo $secao ?>/dados-de-urna/boletim-de-urna"> Confira no TSE</a><br>
+        <?php
+        if ($nivel == 0) {
+        ?>
+            <a class="verificar" href="https://resultados.tse.jus.br/oficial/app/index.html#/eleicao;e=e544;uf=rs;ufbu=rs;mubu=<?php echo $idMuni ?>;zn=<?php echo $zona ?>;se=<?php echo $secao ?>/dados-de-urna/boletim-de-urna"> Confira no TSE</a><br>
+        <?php
+        } else {
+        ?>
+            <a href="../model/attBol.php?idBol=<?php echo $registros['idBoletim'] ?>&valido=1&email=<?php echo $email ?>"> Confirmar Boletim</a><br>
+            <a href="../model/attBol.php?idBol=<?php echo $registros['idBoletim'] ?>&valido=2&email=<?php echo $email ?>"> Reijeitar Boletim</a><br>
     <?php
+        }
     }
