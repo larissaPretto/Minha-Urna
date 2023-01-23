@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body style="width: 389px; text-align: center;">
     <p class="pageTitle">Dados da seção</p>
 
     <?php
@@ -22,22 +22,23 @@
 
     $cargos = array(1, 3, 5, 6, 7, 8);
 
-    echo '<h5 style="position: absolute;
-    width: auto;
+    echo '<h5 style="position: relative;
     height: 25px;
-    left: 327px;
-    top: -4px;
+    text-align: right;
+    right: 16px;
+    margin-top: -46px;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
     line-height: 25px;
     color: #000000;"""> Zona</h5><br>';
 
-    echo '<h5 style="position: absolute;
+    echo '<h5 style="position: relative;
     width: auto;
+    margin-top: -52px;
     height: 25px;
     right: 16px;
-    top: 28px;
+    text-align: right;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -45,20 +46,21 @@
     color: #000000;""">' . $zona . '</h5><br>';
 
 
-    echo '<h5 style="position: absolute;
+    echo '<h5 style="position: relative;
     width: 62px;
     height: 25px;
-    left: 21px;
-    top: 64px;
+    margin-top: -28px;
+    margin-left: 16px;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
     line-height: 25px;"""> Seção</h5>';
-    echo '<h5 style="position: absolute;
+    echo '<h5 style="position: relative;
     width: 62px;
     height: 18px;
-    left: 21px;
-    top: 102px;
+    text-align: left;
+    margin-top: -26px;
+    margin-left: 16px;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -80,10 +82,7 @@
         <p style="position: absolute;
     left: 128px;
     top: 108px;"><?php echo $registros['userValidate'] ?></p>
-        <br>
-        <br>
-        <br>
-        <br>
+
 
         <?php
         $sql2 = "SELECT * FROM votos WHERE idBoletim = " . $idBol;
@@ -92,21 +91,20 @@
             echo "<br>";
             echo "<br>";
             $teste = 0;
-            echo '<img style="margin-left: 8px;" src="illustrations/barra.svg">';
             if ($cargos[$i] == 1) {
-                echo '<h5 style="margin-top:1px; margin-left:150px; margin-bottom: -32px;"">Presidente</h5><br>';
+                echo '<h5 style="text-align:center; margin-top:1px; margin-bottom: -32px;"">Presidente</h5><br>';
             } else if ($cargos[$i] == 3) {
-                echo '<h5 style="margin-top:1px; margin-left:147px; margin-bottom: -32px;"">Governador</h5><br>';
+                echo '<h5 style="text-align:center; margin-top:1px; margin-bottom: -32px;"">Governador</h5><br>';
             } else if ($cargos[$i] == 5) {
-                echo '<h5 style="margin-top:1px; margin-left:157px; margin-bottom: -32px;"">Senador</h5><br>';
+                echo '<h5 style="text-align:center; margin-top:1px; margin-bottom: -32px;"">Senador</h5><br>';
             } else if ($cargos[$i] == 6) {
-                echo '<h5 style="margin-top:1px; margin-left:127px; margin-bottom: -32px;"">Deputado Federal</h5><br>';
+                echo '<h5 style="text-align:center; margin-top:1px; margin-bottom: -32px;"">Deputado Federal</h5><br>';
             } else if ($cargos[$i] == 7) {
-                echo '<h5 style="margin-top:1px; margin-left:127px; margin-bottom: -32px;"">Deputado Estadual</h5><br>';
+                echo '<h5 style="text-align: center; margin-top:1px; margin-bottom: -32px;"">Deputado Estadual</h5><br>';
             } else if ($cargos[$i] == 8) {
-                echo '<h5 style="margin-top:1px; margin-left:128px; margin-bottom: -32px;"">Deputado Distrital</h5><br>';
+                echo '<h5 style="text-align:center; margin-top:1px; margin-bottom: -32px;"">Deputado Distrital</h5><br>';
             }
-            echo '<img style="margin-left:8px; margin-bottom=1px;"src="illustrations/barra.svg">';
+            echo '<img style="margin-bottom=1px;"src="illustrations/barra.svg">';
             echo "<br>";
             $registro2 = mysqli_query($conectado, $sql2);
             while ($registros2 = mysqli_fetch_array($registro2)) {
@@ -122,26 +120,31 @@
                     if ($anterior == $registros3['NM_URNA_CANDIDATO'])
                         continue;
                     echo '<h5 style="font-style: normal;
+                    text-align: left;
+                    width: auto;
                     font-weight: 600;
                     font-size: 20px;
                     margin-top:8px;
                     margin-bottom:0px;
-                    margin-left: 10px;""> ' . $registros3['NM_URNA_CANDIDATO'] . '</h5>';
+                    margin-left: 16px;""> ' . $registros3['NM_URNA_CANDIDATO'] . '</h5>';
 
                     $sql4 = "SELECT sum(votos) as vtotal FROM votos WHERE idCandidato = '$cand' and idBoletim = '$idBol' ";
                     $registro4 = mysqli_query($conectado, $sql4);
                     while ($registros4 = mysqli_fetch_array($registro4)) {
                         echo '<h5 style="
-                    position:absolute;
+                    position: relative;
                     width: auto; 
+
+                    text-align: right;
                     margin-top: -26px;
+                    margin-bottom: 4px;
                     right:20px;
                     font-style: normal;
                     font-weight: 600;
                     font-size: 20px;
                     line-height: 25px;"">' . $registros4['vtotal'] . '</h5>';
                     }
-                    echo '<img style="margin-left:8px; margin-top: 1px; margin-bottom=1px;"src="illustrations/barra.svg">';
+                    echo '<img style="margin-top: 1px; margin-bottom=1px;"src="illustrations/barra.svg">';
                     $anterior = $registros3['NM_URNA_CANDIDATO'];
                 }
             }
@@ -152,7 +155,7 @@
                 margin-top:8px;
                 margin-bottom:1px;
                 margin-left: 58px;"">Sem votos para esse cargo</h5>';
-                echo '<img style="margin-left:8px; margin-top: 4px; margin-bottom=1px;"src="illustrations/barra.svg">';
+               
             }
         }
         ?>

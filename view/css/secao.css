@@ -1,26 +1,22 @@
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-
+    align-items: center;
+    text-align: center;
+    width: 390px;
 }
 
 .pageTitle {
-    position: absolute;
-    width: 228px;
-    height: 16px;
-    left: 16px;
-    top: 8px;
+    position: relative;
+    margin-top: 30px;
 
-    font-family: 'Plus Jakarta Sans';
+    margin-left: 16px;
+    text-align: left;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
     line-height: 25px;
 
     color: #000000;
-}
-
-form {
-    margin-left:6px;
 }
 
 form p {
@@ -36,11 +32,11 @@ form p {
 }
 
 .verificar{
-    position: fixed;
+    position: relative;
     width: 358px;
     height: 52px;
     left: 16px;
-    top: 748px;
+    bottom: 42px;
 
     background: #1F64B4;
     border-radius: 999px;

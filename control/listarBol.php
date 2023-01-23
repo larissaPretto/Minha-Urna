@@ -14,9 +14,9 @@ $query = ("SELECT *
 $registro = mysqli_query($conectado, $query);
 while ($registros = mysqli_fetch_array($registro)) {
 ?>
-    <br>
+    <div class="botaoZona" href="zonas.php?idZona=<?php echo $registros['zona'] ?>&idMuni=<?php echo $selectMuni ?>">
     <p href="zonas.php?idZona=<?php echo $registros['zona'] ?>&idMuni=<?php echo $selectMuni ?>">Zona</p>
-    <a href="zonas.php?idZona=<?php echo $registros['zona'] ?>&idMuni=<?php echo $selectMuni ?>"><?php echo $registros['zona'] ?></a>
-    <br><br><br>
+    <a style="margin-bottom: -50px; margin-left: 20px; text-align:left; color: black; text-decoration: none;"href="zonas.php?idZona=<?php echo $registros['zona'] ?>&idMuni=<?php echo $selectMuni ?>"><?php echo $registros['zona'] ?></a>
+</div>
 <?php
 }
