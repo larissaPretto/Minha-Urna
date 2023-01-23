@@ -26,49 +26,32 @@
   ?>
 
   <body>
+  <div class="profilePic">
+          <?php
+            if ($img == $email) {
+              echo '  <img src="../img/semIm.jpg" alt=""style=" width: 216px; height: 216px; border-radius: 999px">';
+            } else {
+              echo '  <img src="../img/' . $img . '" alt=""style="width: 216px; height: 216px; border-radius: 999px">';
+            }
+            ?>
+  </div>
     <p class="title">Suas informações</p>
     <p class="subtitle">Verifique ou edite seus dados</p>
 
-  <div class="container">
-    <div class="container-fluid">
-
-      <form name="att" method="POST" action="../model/attUser.php" enctype="multipart/form-data">
-        <div class="form-row">
-          <div class="col">
-            <input type="text" class="nomeTextField" name="nome" value="<?php echo $nome; ?>">
-          </div>
-          <div class="col">
-            <input name="email" type="email" class="emailTextField" value="<?php echo $email; ?>">
-            <input type="hidden" name="idUsuario" value="<?php echo $idUsuario ?>">
-          </div>
-        </div>
-        <br>
-        <br>
-        <div class="profilePic">
-          <?php
-            if ($img == $email) {
-              echo '  <img src="../img/semIm.jpg" alt=""style="position: absolute;
-              width: 216px;
-              height: 216px;
-              left: 64px;
-              top: -356px;
-              border-radius: 999px">';
-            } else {
-              echo '  <img src="../img/' . $img . '" alt=""style="position: absolute;
-              width: 216px;
-              height: 216px;
-              left: 64px;
-              top: -356px;
-              border-radius: 999px">';
-            }
-            ?>
-        </div>
-        <div class="form-group">
-          <input type="file" class="imgField" id="exampleFormControlFile1" name="fileUpload">
-        </div>
-        <br>
-          <button type="submit" class="entrar">Salvar alterações</button>
-    </div>
+  <div class="container-fluid">
+    <form name="att" method="POST" action="../model/attUser.php" enctype="multipart/form-data">
+      <div>
+        <input type="text" class="nomeTextField" name="nome" value="<?php echo $nome; ?>">
+      </div>
+      <div>
+        <input name="email" type="email" class="emailTextField" value="<?php echo $email; ?>">
+        <input type="hidden" name="idUsuario" value="<?php echo $idUsuario ?>">
+      </div>
+      <div>
+        <input type="file" class="imgField" id="exampleFormControlFile1" name="fileUpload">
+      </div>
+      <br>
+      <button type="submit" class="entrar">Salvar alterações</button>
   </div>
   <br>
     <a href="../control/sair.php">Sair</a>
