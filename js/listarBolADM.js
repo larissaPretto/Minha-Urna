@@ -1,3 +1,13 @@
+var valor = 0;
+$(document).ready(function() {
+    $('input:radio[name="verif"]').change(function() {
+      if ($("input[name='verif']:checked")) {
+        valor = $(this).val();
+      } 
+    });
+  });
+  
+
 let selectUF = document.getElementById('idUF');
 let selectMuni = document.getElementById('idMuni');
 
@@ -19,7 +29,7 @@ selectMuni.onchange = () => {
     let resul = document.getElementById('resul');
     let valor1 = selectMuni.value;
     let valor2 = selectUF.value;
-        fetch("../control/listarBol.php?selectMuni=" + valor1 + "&selectUF="+ valor2)
+        fetch("../control/listarBolADM.php?selectMuni=" + valor1 + "&selectUF="+ valor2 + "&verif=" + valor )
             .then(response => 
             {
                 return response.text();

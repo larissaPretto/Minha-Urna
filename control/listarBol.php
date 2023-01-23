@@ -5,8 +5,8 @@ $selectMuni = $_GET['selectMuni'];
 $selectUF = $_GET['selectUF'];
 
 $query = ("SELECT *
-    FROM urna
-    WHERE idUF = '$selectUF'
+    FROM urna natural join boletim
+    WHERE idUF = '$selectUF' and valido = 1
     and idMuni = '$selectMuni'
     GROUP BY zona
     ORDER BY zona");

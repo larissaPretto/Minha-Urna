@@ -1,9 +1,9 @@
 <form name="frmUEscolha" action="../model/incluirCadastro.php" method="POST" enctype="multipart/form-data">
-    <input type="radio" id="notVer" name="verif" value="1">
+    <input type="radio" id="notVer" name="verif" value="0" checked>
     <label for="user">Não verificados</label><br>
-    <input type="radio" id="ver" name="verif" value="2">
+    <input type="radio" id="ver" name="verif" value="1">
     <label for="adm">Já verificados</label><br>
-    <input type="radio" id="rej" name="verif" value="3">
+    <input type="radio" id="rej" name="verif" value="2">
     <label for="adm">Rejeitados</label><br>
 
     <select name="selectUF" class="UFField" id="idUF" required>
@@ -28,4 +28,4 @@
 <div id="resul">
     <br>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="../js/listarBol.js"></script>
+    <script src="../js/listarBolADM.js"></script>

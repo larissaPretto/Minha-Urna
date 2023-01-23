@@ -72,7 +72,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
   <?php
   if ($nivel == 1) {
   ?>
-    <a href="verificarBol.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
+    <a href="verificarBol.php?turno='<?php echo $turno ?>'"><img src="illustrations/add.svg" alt="addIcon" /></a>
     <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
   <?php
   } else {
