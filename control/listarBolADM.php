@@ -4,10 +4,11 @@ include("../model/conexao.php");
 $selectMuni = $_GET['selectMuni'];
 $selectUF = $_GET['selectUF'];
 $verif = $_GET['verif'];
+$turno = $_GET['turno'];
 
 $query = ("SELECT *
     FROM urna natural join boletim
-    WHERE idUF = '$selectUF'
+    WHERE idUF = '$selectUF' and turno = '$turno'
     and idMuni = '$selectMuni' and valido = '$verif'
     GROUP BY zona
     ORDER BY zona");

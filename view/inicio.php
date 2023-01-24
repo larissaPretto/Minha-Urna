@@ -28,32 +28,32 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
 <body>
   <p class="greeting"> Olá, <?php echo $nome; ?>
 
-  <a class="dropdown-item" href="perfilUser.php">
-    <div class="profilePic" style="margin-left:100px">
-      <?php
-      if ($img == $email) {
-        echo '  <img src="../img/semIm.jpg" alt="" style="position: absolute;
+    <a class="dropdown-item" href="perfilUser.php">
+      <div class="profilePic" style="margin-left:100px">
+        <?php
+        if ($img == $email) {
+          echo '  <img src="../img/semIm.jpg" alt="" style="position: absolute;
               width: 42px;
               height: 42px;
               left: 332px;
               top: 32px;
               border-radius: 999px;">';
-      } else {
+        } else {
 
-        echo '  <img src="../img/' . $img . '" alt="" style="position: absolute;
+          echo '  <img src="../img/' . $img . '" alt="" style="position: absolute;
               width: 42px;
               height: 42px;
               left: 332px;
               top: 32px;
               border-radius: 999px;">';
-      }
-      ?>
-    </div>
-  </a>
+        }
+        ?>
+      </div>
+    </a>
   <div class="Search">
     <form name="frmBusca" method="POST" action="pesquisa.php" class="form-inline my-2 my-lg-0">
-    <p class="tipoEleicoes">Eleições Gerais 2022</p>  
-    <select name="turno" class="turnoField" id="turno">
+      <p class="tipoEleicoes">Eleições Gerais 2022</p>
+      <select name="turno" id="turno" class="turnoField" id="turno">
         <?php
         include("../model/conexao.php");
         $turno = "<option value='1'>Turno</option>";
@@ -72,7 +72,10 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
   <?php
   if ($nivel == 1) {
   ?>
-    <a class="verify" href="verificarBol.php?turno='<?php echo $turno ?>'"><img src="illustrations/verify.svg" alt="addIcon" /></a>
+    <a class="verify" href="verificarBol.php?turno=1"><img src="illustrations/verify.svg" alt="addIcon" /></a>
+    <div id="res">
+    </div>
+
     <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
   <?php
   } else {
@@ -83,3 +86,5 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
   ?>
   </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="../js/pegarTurno.js"></script>

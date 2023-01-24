@@ -59,16 +59,6 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 18px;""">  Votos totais da zona</h5><br><br>';
-    echo '<h5 style="position: relative;
-        text-align: right;    
-        width: auto;
-        height: 25px;
-        margin-right: 42px;
-        margin-top: -86px;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 25px;""">' . $votos  . '</h5><br><br>';
     ?>
     <p style="position: relative; margin-left: 16px; display: flex; font-size: 14px; margin-top: -38px;">Seções</p>
     <?php
@@ -102,3 +92,13 @@
     <?php
         }
     }
+    echo '<h5 style="position: relative;
+    text-align: right;    
+    width: auto;
+    height: 25px;
+    margin-right: 42px;
+    margin-top: -86px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;""">' . $votos  . '</h5><br><br>';

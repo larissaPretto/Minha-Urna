@@ -13,8 +13,8 @@ let selectMuni = document.getElementById('idMuni');
 
 selectUF.onchange = () => {
     let selectMuni = document.getElementById('idMuni');
-    let valor = selectUF.value;
-    fetch("../control/selectMuni.php?idUF=" + valor)
+    let val = selectUF.value;
+    fetch("../control/selectMuni.php?idUF=" + val)
         .then(response => 
         {
             return response.text();
@@ -27,9 +27,10 @@ selectUF.onchange = () => {
 
 selectMuni.onchange = () => {
     let resul = document.getElementById('resul');
+    var turno = document.getElementById('res').getAttribute('value');
     let valor1 = selectMuni.value;
     let valor2 = selectUF.value;
-        fetch("../control/listarBolADM.php?selectMuni=" + valor1 + "&selectUF="+ valor2 + "&verif=" + valor )
+        fetch("../control/listarBolADM.php?selectMuni=" + valor1 + "&selectUF="+ valor2 + "&verif=" + valor + "&turno="+turno)
             .then(response => 
             {
                 return response.text();
