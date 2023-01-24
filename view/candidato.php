@@ -73,7 +73,7 @@
 
     echo '<h5 style="position: relative;
         height: 18px;
-        margin-top: -60px;
+        margin-top: -61px;
         margin-left: 28px;
         font-style: normal;
         font-weight: 400;
@@ -81,8 +81,8 @@
         line-height: 18px;"">Candidato a</h5><br>';
     echo '<h5 style="position: relative;
         width: auto;
-        margin-top: -61px;
-        margin-left: 112px;
+        margin-top: -63px;
+        margin-left: 113px;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -95,7 +95,7 @@
 
     echo '<h5 style="position: relative;
     text-align: right;
-    margin-top: -10px;
+    margin-top: -12px;
     margin-right: 8px;
     font-style: normal;
     font-weight: 400;
@@ -105,33 +105,33 @@
 
 
     echo '<h5 style="position: relative;
-    width: auto;
-    text-align: right;
-    margin-top: -56px;
-    margin-right: 8px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;"">' . $registros7['uf'] . '</h5><br>';
+        width: auto;
+        text-align: right;
+        margin-top: -55px;
+        margin-right: 8px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;"">' . $registros7['uf'] . '</h5><br>';
 
     $sql5 = "SELECT sum(votos) as tvotos FROM votos WHERE idCandidato=" . $idCand;
     $registro5 = mysqli_query($conectado, $sql5);
     $registros5 = mysqli_fetch_array($registro5);
 
     echo '<h5 style="position: relative;
-    height: 18px;
-    margin-left: 28px;
-    margin-top: -88px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;"">Votos totais</h5><br><br>';
+        height: 18px;
+        margin-left: 28px;
+        margin-top: -92px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;"">Votos totais</h5><br><br>';
 
     echo '<h5 style="position: relative;
         width: auto;
         height: 18px;
         left: 132px;
-        margin-top: -81px;
+        margin-top: -83px;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
