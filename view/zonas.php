@@ -19,6 +19,7 @@
     include("../model/conexao.php");
     $zona = $_GET['idZona'];
     $idMuni = $_GET['idMuni'];
+    $verif = $_GET['verif'];
     $votos = 0;
     echo '<h5 style="position: relative;
         text-align: left;
@@ -66,7 +67,7 @@
     $registro = mysqli_query($conectado, $sql);
     while ($registros = mysqli_fetch_array($registro)) {
 
-        $sql2 = "SELECT * FROM boletim WHERE valido = 1 and idUrna = " . $registros['idUrna'];
+        $sql2 = "SELECT * FROM boletim WHERE valido = $verif and idUrna = " . $registros['idUrna'];
         $registro2 = mysqli_query($conectado, $sql2);
         while ($registros2 = mysqli_fetch_array($registro2)) {
 
