@@ -73,5 +73,26 @@ if ($row > 0) {
 <?php
     }
 } else {
-    echo '<h1  style="margin-top:90px">Nada encontrado</h1>';
-}
+    echo '<h1  style=" margin-top:18px; margin-left: 50px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 8px;"> ' . $busca . '</h1>';
+    echo '<img style="position: absolute;
+        width: 219px;
+        height: 219px;
+        left: 82px;
+        top: 164px;
+        
+        background: url(notFound.jpg);
+        border-radius: 999px;" src="illustrations/notFound.png">';
+    echo '<h1  style="position: absolute;
+        width: 194px;
+        height: 28px;
+        left: 96px;
+        top: 380px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 28px;">Nada encontrado!</h1>';
+    }
