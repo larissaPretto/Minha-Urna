@@ -19,14 +19,12 @@ selectMuni.onchange = () => {
     let resul = document.getElementById('resul');
     let valor1 = selectMuni.value;
     let valor2 = selectUF.value;
-
-    fetch("../control/listarBol.php?selectMuni=" + valor1 + "&selectUF="+ valor2)
-        .then(response => 
-        {
-            return response.text();
-        })
-        .then(texto => {
-            resul.innerHTML = texto;
-        });
-
+        fetch("../control/listarBol.php?selectMuni=" + valor1 + "&selectUF="+ valor2)
+            .then(response => 
+            {
+                return response.text();
+            })
+            .then(texto => {
+                resul.innerHTML = texto;
+            });
 }

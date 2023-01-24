@@ -21,13 +21,12 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
   $nome = $produto['nome'];
   $img = $produto['img'];
   $idUsuario = $produto['idUsuario'];
+  $nivel = $produto['nivel'];
 }
 ?>
 
 <body>
   <p class="greeting"> Olá, <?php echo $nome; ?>
-  <p>
-  <p class="tipoEleicoes">Eleições Gerais 2022</p>
 
   <a class="dropdown-item" href="perfilUser.php">
     <div class="profilePic" style="margin-left:100px">
@@ -50,11 +49,11 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
       }
       ?>
     </div>
-  </a><br>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </a>
   <div class="Search">
     <form name="frmBusca" method="POST" action="pesquisa.php" class="form-inline my-2 my-lg-0">
-      <select name="turno" class="turnoField" id="turno">
+    <p class="tipoEleicoes">Eleições Gerais 2022</p>  
+    <select name="turno" class="turnoField" id="turno">
         <?php
         include("../model/conexao.php");
         $turno = "<option value='1'>Turno</option>";
@@ -70,8 +69,17 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
       <img class="searchIcon" src="illustrations/search.svg" alt="search" />
     </form>
   </div>
-
-  <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
-
+  <?php
+  if ($nivel == 1) {
+  ?>
+    <a href="verificarBol.php?turno='<?php echo $turno ?>'"><img src="illustrations/add.svg" alt="addIcon" /></a>
+    <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
+  <?php
+  } else {
+  ?>
+    <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
+  <?php
+  }
+  ?>
   </div>
 </body>

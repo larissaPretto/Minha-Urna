@@ -12,6 +12,7 @@
 
 <body>
 
+    <p class="pageTitle">Registrar resultados</p>
     <img src="illustrations/local.png">
     <p class="title">Estado e Município</p>
     <div class="warning">
@@ -19,36 +20,31 @@
         <p class="title">Os dados serão verificados após a finalização do registro.</p>
     </div>
     <br>
-    <p class="pageTitle">Registrar resultados</p>
-    <br>
-    <div class="card">
-        <div class="card-body">
-            <form name="frmResul1" action="cadastroResultado2.php" method="POST" enctype="multipart/form-data">
-                <select name="selectUF" class="UFTextField" id="idUF" required>
-                    <?php
-                    include("../model/conexao.php");
-                    $UF = "<option value='0'>Selecione o UF</option>";
-                    $sql = "SELECT * FROM estadoUF GROUP BY uf ORDER BY uf";
-                    $rs = mysqli_query($conectado, $sql);
-                    while ($registro = mysqli_fetch_array($rs)) {
-                        if ($registro['uf'] != "BR") {
-                            $UF = $UF . "<option value='" . $registro['id'] . "'>" . $registro['uf'] . "</option>";
-                        }
+    <div class="card-body">
+        <form name="frmResul1" action="cadastroResultado2.php" method="POST" enctype="multipart/form-data">
+            <select name="selectUF" class="UFTextField" id="idUF" required>
+                <?php
+                include("../model/conexao.php");
+                $UF = "<option value='0'>Selecione o UF</option>";
+                $sql = "SELECT * FROM estadoUF GROUP BY uf ORDER BY uf";
+                $rs = mysqli_query($conectado, $sql);
+                while ($registro = mysqli_fetch_array($rs)) {
+                    if ($registro['uf'] != "BR") {
+                        $UF = $UF . "<option value='" . $registro['id'] . "'>" . $registro['uf'] . "</option>";
                     }
-                    echo $UF;
-                    ?>
-                </select>
-                <p class="UFTextFieldHelp">Estado do local de votação</p>
+                }
+                echo $UF;
+                ?>
+            </select>
+            <p class="UFTextFieldHelp">Estado do local de votação</p>
 
-
-                <select name="selectMuni" id="idMuni" class="municipioTextField" required>
-                    <option value="">Selecione um municipio</option>
-                </select>
-                <p class="municipioTextFieldHelp">Munícipio onde ocorreu a votação</p>
+            <select name="selectMuni" id="idMuni" class="municipioTextField" required>
+                <option value="">Selecione um municipio</option>
+            </select>
+            <p class="municipioTextFieldHelp">Munícipio onde ocorreu a votação</p>
         </div>
-    </div>
-    <br>
-    <button type="submit" class="btn btn-primary">Próximo</button><br>
+        <br>
+        <button type="submit" class="btn btn-primary">Próximo</button><br>
 
     </form>
     </fieldset>
