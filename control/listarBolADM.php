@@ -18,6 +18,6 @@ while ($registros = mysqli_fetch_array($registro)) {
     <br>
     <p href="zonas.php?idZona=<?php echo $registros['zona'] ?>&idMuni=<?php echo $selectMuni ?>&verif=<?php echo $verif ?>">Zona</p>
     <a href="zonas.php?idZona=<?php echo $registros['zona'] ?>&idMuni=<?php echo $selectMuni ?>&verif=<?php echo $verif ?>"><?php echo $registros['zona'] ?></a>
-    <br><br><br>
+    <br><br><br><br>
 <?php
 }
