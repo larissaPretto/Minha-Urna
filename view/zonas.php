@@ -61,7 +61,7 @@
         font-size: 14px;
         line-height: 18px;""">  Votos totais da zona</h5><br><br>';
     ?>
-    <p style="position: relative; margin-left: 16px; display: flex; font-size: 14px; margin-top: -28px;">Seções</p>
+    <p style="position: relative; margin-left: 16px; display: flex; font-size: 14px; margin-top: -38px;">Seções</p>
     <?php
     $sql = "SELECT * FROM urna WHERE zona=" . $zona . " ORDER BY secao";
     $registro = mysqli_query($conectado, $sql);
@@ -93,12 +93,12 @@
     <?php
         }
     }
-    echo '<h5 style="position: relative;
+    echo '<h5 style="position: absolute;
     text-align: right;    
     width: auto;
     height: 25px;
-    margin-right: 42px;
-    margin-top: -174px;
+    right: 32px;
+    top: 88px;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;

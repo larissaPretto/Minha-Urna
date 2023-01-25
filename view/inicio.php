@@ -27,6 +27,25 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
 
 ?>
 
+<p style="box-sizing: border-box;
+
+  position: absolute;
+  width: 358px;
+  height: 87px;
+  left: 17px;
+  top: 156px;
+  padding-top: 20px;
+  padding-left: 20px;
+  display: flex;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;">Votos contabilizados</p>
+<img style="position: absolute; top: 228px; display: flex; left: 36px;"src="illustrations/fakeGraph.svg">
+
 <body>
   <p class="greeting"> Olá, <?php echo $nome; ?>
 
@@ -77,7 +96,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
     width: 82px;
     height: 16px;
     left: 19px;
-    top: 318px;
+    top: 272px;
 
     font-family: 'Plus Jakarta Sans';
     font-style: normal;
@@ -93,7 +112,18 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
   $sql = "SELECT sum(votos) as total from boletim natural join votos where valido = 1 and turno = 1";
   $produtos = mysqli_query($conectado, $sql);
   while ($registro = mysqli_fetch_array($produtos)) {
-    echo $registro['total'];
+
+    echo '<h5 style="font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    position: absolute;
+    width: 102px;
+    height: 25px;
+    right: 32px;
+    top: 156px;
+    text-align: right;
+    """>' . $registro['total'] . '</h5><br>';
   }
   ?>
 
@@ -120,7 +150,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
                   position: absolute;
                   width: 241px;
                   height: 35px;
-                  top: -200px;
+                  top: -48px;
                   padding-left: 12px;
                 
                   background: #FFFFFF;
@@ -145,8 +175,8 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
               width: 107px;
               height: 35px;
               left: 248px;
-              top: -200px;
-              padding-left: 33px;
+              top: -48px;
+              padding-left: 31px;
               background: #FFFFFF;
               border: 0.5px solid rgba(0, 0, 0, 0.5);
               border-radius: 999px;
@@ -156,7 +186,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
               font-size: 12px;
               line-height: 15px;
               display: flex;
-              align-items: center;" type="submit" name="submit" vlaue="Choose options">
+              align-items: center;" type="submit" name="submit" value="Aplicar">
       </form>
       <?php
       if (isset($_POST['submit'])) {
