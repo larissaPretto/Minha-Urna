@@ -3,18 +3,19 @@ include("../model/conexao.php");
 
 $idCargo = $_GET['idCargo'];
 $idUF = $_GET['idUF'];
+$turno = $_GET['turno'];
 
 if ($idCargo == 3 or $idCargo == 5 or $idCargo == 7) {
     $query = ("SELECT *
     FROM candidatos
     WHERE CD_CARGO = '$idCargo' 
-    and ID_UF = '$idUF' 
+    and ID_UF = '$idUF' and NR_TURNO = '$turno'
     GROUP BY NM_URNA_CANDIDATO
     ORDER BY NM_URNA_CANDIDATO");
 } else {
     $query = ("SELECT *
     FROM candidatos
-    WHERE CD_CARGO = '$idCargo'  
+    WHERE CD_CARGO = '$idCargo' and NR_TURNO = '$turno' 
     GROUP BY NM_URNA_CANDIDATO
     ORDER BY NM_URNA_CANDIDATO");
 }

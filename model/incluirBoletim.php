@@ -30,6 +30,6 @@ $SQL = "INSERT INTO
 mysqli_query($conectado, $SQL);
 $idBol = mysqli_insert_id($conectado);
 
-header('location: ../view/cadastroResultado5.php?idUF=' . $idUF . '&idBol=' . $idBol);
+header('location: ../view/cadastroResultado5.php?idUF=' . $idUF . '&idBol=' . $idBol . '&turno=' . $turno);
 
 ?>

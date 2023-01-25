@@ -23,6 +23,7 @@
     <?php
     $idUF = $_GET['idUF'];
     $idBol = $_GET['idBol'];
+    $turno = $_GET['turno'];
 
     ?>
     <div class="card">
@@ -32,7 +33,7 @@
                     <?php
                     include("../model/conexao.php");
                     $cargo = "<option value='0'>Selecione o cargo</option>";
-                    $sql = "SELECT * FROM cargos ORDER BY NM_CARGO";
+                    $sql = "SELECT * FROM cargos where turno = '$turno' or turno2 = '$turno' ORDER BY NM_CARGO";
                     $rs = mysqli_query($conectado, $sql);
                     while ($registro = mysqli_fetch_array($rs)) {
                         $cargo = $cargo . "<option value='" . $registro['CD_CARGO'] . "'>" . $registro['NM_CARGO'] . "</option>";
@@ -49,6 +50,7 @@
 
                 <input type="hidden" name="idUF" id="idUF" value="<?php echo $idUF ?>">
                 <input type="hidden" name="idBol" id="idUF" value="<?php echo $idBol ?>">
+                <input type="hidden" name="turno" id="turno" value="<?php echo $turno ?>">
         </div>
     </div>
     <br>
