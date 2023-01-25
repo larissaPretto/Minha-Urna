@@ -23,7 +23,7 @@
         <form action="" method="post" class="mb-3">
             <div class="select-block">
                 <select name="Cargo">
-                    <option value="1">Presidente</option>
+                    <option value="1">Presidente</option selected>
                     <option value="3">Governador</option>
                     <option value="6">Deputado Federal</option>
                 </select>
@@ -69,8 +69,7 @@
                         var chartdata = {
                             labels: nome,
                             datasets: [{
-                                label: 'Mais Votados',
-                                backgroundColor: '#49e2ff',
+                                backgroundColor: '#1F64B4',
                                 borderColor: '#46d5f1',
                                 hoverBackgroundColor: '#CCCCCC',
                                 hoverBorderColor: '#666666',

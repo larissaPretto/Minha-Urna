@@ -37,7 +37,7 @@ body {
     position: absolute;
     width: 107px;
     height: 35px;
-    margin-left: 268px;
+    margin-left: 256px;
     margin-top: 12px;
 
     background: #FFFFFF;
@@ -135,4 +135,17 @@ body {
 .verify img {
     width: 38px;
     margin-top: 14px;
+}
+
+.grafico {
+    box-sizing: border-box;
+
+position: absolute;
+width: 358px;
+height: 260px;
+left: 16px;
+top: 357px;
+
+border: 1px solid rgba(0, 0, 0, 0.2);
+border-radius: 24px;
 }
