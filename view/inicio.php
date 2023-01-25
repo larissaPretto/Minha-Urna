@@ -72,6 +72,21 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
     </form>
   </div>
 
+  <p style="position: absolute;
+    width: 82px;
+    height: 16px;
+    left: 19px;
+    top: 318px;
+
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+
+    color: rgba(0, 0, 0, 0.75);">Mais votados</p>
   <?php
   $sql = "SELECT sum(votos) as total from boletim natural join votos where valido = 1";
   $produtos = mysqli_query($conectado, $sql);
