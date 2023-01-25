@@ -61,7 +61,7 @@ body {
     width: 277px;
     height: 64px;
     left: 18px;
-    bottom: 48px;
+    bottom: 88px;
 
     background: #FFFFFF;
     border: none;
@@ -84,7 +84,7 @@ body {
     width: 28px;
     height: 28px;
     left: 34px;
-    bottom: 65px
+    bottom: 105px
 }
 
 .tipoEleicoes {
@@ -100,7 +100,7 @@ body {
     width: 64px;
     height: 64px;
     left: 310px;
-    bottom: 48px;
+    bottom: 88px;
 
     border-radius: 999px;
     background: #FFFFFF;
@@ -117,7 +117,7 @@ body {
     width: 64px;
     height: 64px;
     left: 310px;
-    bottom: 124px;
+    bottom: 164px;
 
     border-radius: 999px;
     background: #FFFFFF;
