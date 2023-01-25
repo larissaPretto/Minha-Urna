@@ -140,12 +140,13 @@ body {
 .grafico {
     box-sizing: border-box;
 
-position: absolute;
-width: 358px;
-height: 260px;
-left: 16px;
-top: 357px;
+    padding-top: 24px;
+    position: absolute;
+    width: 358px;
+    height: 260px;
+    left: 16px;
+    top: 357px;
 
-border: 1px solid rgba(0, 0, 0, 0.2);
-border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
 }

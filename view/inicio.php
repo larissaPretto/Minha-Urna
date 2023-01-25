@@ -97,7 +97,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
                   height: 35px;
                   top: -200px;
                   padding-left: 12px;
-
+                
                   background: #FFFFFF;
                   border: 0.5px solid rgba(0, 0, 0, 0.5);
                   border-radius: 999px;
@@ -115,7 +115,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
                 </select>
             </div>
             <input style="box-sizing: border-box;
-
+      
               position: absolute;
               width: 107px;
               height: 35px;
@@ -131,7 +131,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
               font-size: 12px;
               line-height: 15px;
               display: flex;
-              align-items: center;" type="submit" name="submit" value="Aplicar">
+              align-items: center;" type="submit" name="submit" vlaue="Choose options">
         </form>
         <?php
         if (isset($_POST['submit'])) {
@@ -171,21 +171,28 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
                         var chartdata = {
                             labels: nome,
                             datasets: [{
-                                label: 'Mais Votados',
                                 backgroundColor: '#1F64B4',
                                 borderColor: '#46d5f1',
                                 hoverBackgroundColor: '#CCCCCC',
                                 hoverBorderColor: '#666666',
-                                data: votos
+                                data: votos,
                             }]
                         };
 
                         var graphTarget = $("#graphCanvas");
-
-                        var barGraph = new Chart(graphTarget, {
+                        const configs = {
                             type: 'bar',
-                            data: chartdata
-                        });
+                            data: chartdata,
+                            options: {
+                                legend: {
+                                    display: false,
+                                    labels: {
+                                        display: false
+                                    }
+                                }
+                            }
+                        };
+                        var barGraph = new Chart(graphTarget, configs);
                     });
             }
         }
