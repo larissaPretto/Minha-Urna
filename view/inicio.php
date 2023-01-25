@@ -151,76 +151,78 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
 
     <div id="chart-container">
       <canvas id="graphCanvas"></canvas>
-    </div>
+      <div id="chart-container">
+        <canvas id="graphCanvas"></canvas>
+      </div>
 
-    <script>
-      $(document).ready(function() {
-        showGraph();
-      });
+      <script>
+        $(document).ready(function() {
+          showGraph();
+        });
 
 
-      function showGraph() {
-        {
-          // $.post("data.php",
-          $.post("dadosGrafico.php", {
-              num: <?php echo $selected; ?>,
-            },
-            function(data) {
-              console.log(data);
-              var nome = [];
-              var votos = [];
+        function showGraph() {
+          {
+            // $.post("data.php",
+            $.post("dadosGrafico.php", {
+                num: <?php echo $selected; ?>,
+              },
+              function(data) {
+                console.log(data);
+                var nome = [];
+                var votos = [];
 
-              for (var i in data) {
-                nome.push(data[i].NM_URNA_CANDIDATO);
-                votos.push(data[i].TOTAL); //AQUI VOU POR O NUMERO DE VOTOS DO CANDIDATO
-              }
+                for (var i in data) {
+                  nome.push(data[i].NM_URNA_CANDIDATO);
+                  votos.push(data[i].TOTAL); //AQUI VOU POR O NUMERO DE VOTOS DO CANDIDATO
+                }
 
-              var chartdata = {
-                labels: nome,
-                datasets: [{
-                  backgroundColor: '#1F64B4',
-                  borderColor: '#46d5f1',
-                  hoverBackgroundColor: '#CCCCCC',
-                  hoverBorderColor: '#666666',
-                  data: votos,
-                }]
-              };
+                var chartdata = {
+                  labels: nome,
+                  datasets: [{
+                    backgroundColor: '#1F64B4',
+                    borderColor: '#46d5f1',
+                    hoverBackgroundColor: '#CCCCCC',
+                    hoverBorderColor: '#666666',
+                    data: votos,
+                  }]
+                };
 
-              var graphTarget = $("#graphCanvas");
-              const configs = {
-                type: 'bar',
-                data: chartdata,
-                options: {
-                  legend: {
-                    display: false,
-                    labels: {
-                      display: false
+                var graphTarget = $("#graphCanvas");
+                const configs = {
+                  type: 'bar',
+                  data: chartdata,
+                  options: {
+                    legend: {
+                      display: false,
+                      labels: {
+                        display: false
+                      }
                     }
                   }
-                }
-              };
-              var barGraph = new Chart(graphTarget, configs);
-            });
+                };
+                var barGraph = new Chart(graphTarget, configs);
+              });
+          }
         }
-      }
-    </script>
-  </div>
-
-  <?php
-  if ($nivel == 1) {
-  ?>
-    <a class="verify" href="verificarBol.php?turno=1"><img src="illustrations/verify.svg" alt="addIcon" /></a>
-    <div id="res">
+      </script>
     </div>
 
-    <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
-  <?php
-  } else {
-  ?>
-    <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
-  <?php
-  }
-  ?>
+    <?php
+    if ($nivel == 1) {
+    ?>
+      <a class="verify" href="verificarBol.php?turno=1"><img src="illustrations/verify.svg" alt="addIcon" /></a>
+      <div id="res">
+      </div>
+
+      <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
+    <?php
+    } else {
+    ?>
+      <a class="add" href="cadastroResultado1.php"><img src="illustrations/add.svg" alt="addIcon" /></a>
+    <?php
+    }
+    ?>
   </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
