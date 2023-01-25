@@ -142,7 +142,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
         ?>
     </div>
 
-    <div style=""id="chart-container">
+    <div id="chart-container">
         <canvas id="graphCanvas"></canvas>
     </div>
 
