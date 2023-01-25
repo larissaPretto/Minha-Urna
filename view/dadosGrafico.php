@@ -4,7 +4,8 @@ header('Content-Type: application/json');
 $numero = $_POST['num'];
 include("../model/conexao.php");
 
-$sql = "SELECT NM_URNA_CANDIDATO, sum(votos) as TOTAL FROM boletim natural join votos join candidatos on idCandidato = ID_CANDIDATO where CD_CARGO = $numero GROUP BY idCandidato order by total DESC LIMIT 3";
+$sql = "SELECT NM_URNA_CANDIDATO, sum(votos) as TOTAL FROM boletim natural join votos join candidatos on idCandidato = ID_CANDIDATO 
+where CD_CARGO = $numero and valido = 1 and turno = 1 GROUP BY idCandidato order by total DESC LIMIT 3";
 
 $result = mysqli_query($conectado, $sql);
 
