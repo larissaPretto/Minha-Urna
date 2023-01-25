@@ -87,6 +87,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
     align-items: center;
 
     color: rgba(0, 0, 0, 0.75);">Mais votados</p>
+
   <?php
   $sql = "SELECT sum(votos) as total from boletim natural join votos where valido = 1";
   $produtos = mysqli_query($conectado, $sql);

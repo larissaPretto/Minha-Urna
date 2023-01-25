@@ -34,6 +34,8 @@
             if (!empty($_POST['Cargo'])) {
                 $selected = $_POST['Cargo'];
                 echo 'Escolhido: ' . $selected;
+            } else {
+                $selected = 1;
             }
         }
         ?>
