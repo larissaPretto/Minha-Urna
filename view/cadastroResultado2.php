@@ -27,13 +27,16 @@
     <div class="card">
         <div class="card-body">
             <form name="frmResul1" action="cadastroResultado4.php" method="POST" enctype="multipart/form-data">
-                <div class="turno1">
-                    <input type="radio" id="1" name="turno" value="1">
-                    <label for="user">1º Turno</label><br>
-                </div>
-                <div class="turno1">
-                    <input type="radio" id="2" name="turno" value="2">
-                    <label for="adm">2º Turno</label><br>
+
+                <div class="wrapper">
+                    <input type="radio" name="turno" id="option-1" value="1" id="notVer" checked>
+                    <input type="radio" name="turno" id="option-2" value="2" id="ver">
+                    <label for="option-1" class="option option-1">
+                        <span>1º Turno</span>
+                    </label>
+                    <label for="option-2" class="option option-2">
+                        <span>2º Turno</span>
+                    </label>
                 </div>
 
                 <select name="selectZona" class="zonaTextField" id="idZona" required>

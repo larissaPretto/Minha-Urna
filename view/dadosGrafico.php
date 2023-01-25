@@ -16,3 +16,13 @@ foreach ($result as $row) {
 mysqli_close($conectado);
 
 echo json_encode($dados);
+<<<<<<< HEAD
+=======
+
+
+// if ($numero == 1) {
+// 	$sqlQuery = "SELECT NM_URNA_CANDIDATO, NR_CANDIDATO FROM candidatos WHERE CD_CARGO = 1 LIMIT 3;";
+// } elseif ($numero == 3) {
+// 	$sqlQuery = "SELECT NM_URNA_CANDIDATO, NR_CANDIDATO FROM candidatos WHERE CD_CARGO = 3 LIMIT 3;";
+// }
+>>>>>>> 9de8e2500a10422c9007d72c22ab372ddf64ef67

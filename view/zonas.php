@@ -19,6 +19,7 @@
     include("../model/conexao.php");
     $zona = $_GET['idZona'];
     $idMuni = $_GET['idMuni'];
+    $verif = $_GET['verif'];
     $votos = 0;
     echo '<h5 style="position: relative;
         text-align: left;
@@ -60,13 +61,13 @@
         font-size: 14px;
         line-height: 18px;""">  Votos totais da zona</h5><br><br>';
     ?>
-    <p style="position: relative; margin-left: 16px; display: flex; font-size: 14px; margin-top: -38px;">Seções</p>
+    <p style="position: relative; margin-left: 16px; display: flex; font-size: 14px; margin-top: -28px;">Seções</p>
     <?php
     $sql = "SELECT * FROM urna WHERE zona=" . $zona . " ORDER BY secao";
     $registro = mysqli_query($conectado, $sql);
     while ($registros = mysqli_fetch_array($registro)) {
 
-        $sql2 = "SELECT * FROM boletim WHERE valido = 1 and idUrna = " . $registros['idUrna'];
+        $sql2 = "SELECT * FROM boletim WHERE valido = $verif and idUrna = " . $registros['idUrna'];
         $registro2 = mysqli_query($conectado, $sql2);
         while ($registros2 = mysqli_fetch_array($registro2)) {
 
@@ -97,7 +98,7 @@
     width: auto;
     height: 25px;
     margin-right: 42px;
-    margin-top: -86px;
+    margin-top: -174px;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;

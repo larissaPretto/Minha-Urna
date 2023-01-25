@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body style="width: 389px; text-align: center;">
+<body style="width: 390px; text-align: center; margin-left: 0px;">
     <p class="pageTitle">Dados da seção</p>
 
     <?php
@@ -163,7 +163,7 @@
                 font-size: 20px;
                 margin-top:8px;
                 margin-bottom:1px;
-                margin-left: 58px;"">Sem votos para esse cargo</h5>';
+                text-align: center;"">Sem votos para esse cargo</h5>';
                
             }
         }
