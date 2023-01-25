@@ -3,6 +3,7 @@
 
 <head lang="pt-br">
   <title>Início | Minha Urna</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/inicio.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,8 +90,11 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
     color: rgba(0, 0, 0, 0.75);">Mais votados</p>
 
   <?php
-  $sql = "SELECT sum(votos) as total from boletim natural join votos where valido = 1";
+  $sql = "SELECT sum(votos) as total from boletim natural join votos where valido = 1 and turno = 1";
   $produtos = mysqli_query($conectado, $sql);
+  while ($registro = mysqli_fetch_array($produtos)) {
+    echo $registro['total'];
+  }
   ?>
 
   <div class="grafico">
@@ -179,7 +183,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
         {
           // $.post("data.php",
           $.post("dadosGrafico.php", {
-              num: <?php echo $selected; ?>,
+              num: <?php echo $selected; ?>
             },
             function(data) {
               console.log(data);
