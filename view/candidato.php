@@ -114,7 +114,7 @@
         font-size: 14px;
         line-height: 18px;"">' . $registros7['uf'] . '</h5><br>';
 
-        $sql5 = "SELECT sum(votos) as tvotos FROM votos WHERE idCandidato=" . $idCand;
+        $sql5 = "SELECT sum(votos) as tvotos FROM votos natural join boletim WHERE idCandidato = $idCand and valido = 1";
         $registro5 = mysqli_query($conectado, $sql5);
         $registros5 = mysqli_fetch_array($registro5);
 
@@ -187,6 +187,7 @@
                     </select>
                 </form>
             </div>
+            <div id="res" value="<?php echo $idCand ?>"></div>
             <div class=zonas id="resul">
                 <br>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

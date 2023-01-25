@@ -8,8 +8,8 @@ $turno = $_GET['turno'];
 
 $query = ("SELECT *
     FROM urna natural join boletim
-    WHERE idUF = '$selectUF' and turno = '$turno'
-    and idMuni = '$selectMuni' and valido = '$verif'
+    WHERE idUF = $selectUF and turno = $turno
+    and idMuni = $selectMuni and valido = $verif
     GROUP BY zona
     ORDER BY zona");
 

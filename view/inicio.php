@@ -23,6 +23,7 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
   $idUsuario = $produto['idUsuario'];
   $nivel = $produto['nivel'];
 }
+
 ?>
 
 <body>
@@ -219,5 +220,10 @@ while ($produto = mysqli_fetch_assoc($produtos)) {
   ?>
   </div>
 </body>
+<?php
+
+$sql = "SELECT sum(votos) as total from boletim natural join votos where valido = 1";
+$produtos = mysqli_query($conectado, $sql);
+?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="../js/pegarTurno.js"></script>

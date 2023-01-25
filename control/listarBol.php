@@ -3,11 +3,12 @@ include("../model/conexao.php");
 
 $selectMuni = $_GET['selectMuni'];
 $selectUF = $_GET['selectUF'];
+$idCand = $_GET['idCand'];
 
 $query = ("SELECT *
-    FROM urna natural join boletim
-    WHERE idUF = '$selectUF'
-    and idMuni = '$selectMuni'
+    FROM urna natural join boletim natural join votos
+    WHERE idUF = $selectUF and idCandidato = $idCand
+    and idMuni = $selectMuni
     GROUP BY zona
     ORDER BY zona");
 
