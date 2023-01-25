@@ -25,7 +25,6 @@
                 <select name="Cargo">
                     <option value="1">Presidente</option selected>
                     <option value="3">Governador</option>
-                    <option value="6">Deputado Federal</option>
                 </select>
             </div>
             <input type="submit" name="submit" vlaue="Choose options">
@@ -73,16 +72,24 @@
                                 borderColor: '#46d5f1',
                                 hoverBackgroundColor: '#CCCCCC',
                                 hoverBorderColor: '#666666',
-                                data: votos
+                                data: votos,
                             }]
                         };
 
                         var graphTarget = $("#graphCanvas");
-
-                        var barGraph = new Chart(graphTarget, {
+                        const configs = {
                             type: 'bar',
-                            data: chartdata
-                        });
+                            data: chartdata,
+                            options: {
+                                legend: {
+                                    display: false,
+                                    labels: {
+                                        display: false
+                                    }
+                                }
+                            }
+                        };
+                        var barGraph = new Chart(graphTarget, configs);
                     });
             }
         }
