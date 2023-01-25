@@ -5,6 +5,7 @@ $cand = $_POST['selectCand'];
 $votos = $_POST['votos'];
 $idUF = $_POST['idUF'];
 $idBol = $_POST['idBol'];
+$turno = $_POST['turno'];
 
 $SQL = "INSERT INTO
 				votos
